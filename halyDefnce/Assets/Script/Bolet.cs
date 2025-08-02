@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
+using UnityEngine.Pool;
 
 public class Bolet : MonoBehaviour
 {
@@ -8,8 +10,7 @@ public class Bolet : MonoBehaviour
 
     void Start()
     {
-        // حذف خودکار گلوله بعد از lifeTime
-        Destroy(gameObject, lifeTime);
+ 
     }
 
     void Update()
@@ -19,6 +20,29 @@ public class Bolet : MonoBehaviour
     }
 
 
+    private ObjectPool<GameObject> pool;
+
+    public void SetPool(ObjectPool<GameObject> pool)
+    {
+        this.pool = pool;
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        // بازگشت به پول پس از برخورد
+        pool.Release(gameObject);
+    }
+
+    private void OnEnable()
+    {
+        StartCoroutine(DestroyAfterSeconds(gameObject, 1f));
+    }
 
 
+
+    IEnumerator DestroyAfterSeconds(GameObject obj, float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        pool.Release(gameObject);
+    }
 }

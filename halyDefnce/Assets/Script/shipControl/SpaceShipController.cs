@@ -43,6 +43,8 @@ public class SpaceShipController : MonoBehaviour
     [SerializeField] private bool JiroscopOn = false;
     Rigidbody rigidbody;
     private Gyroscope gyro;
+    [Header("------booster-------")]
+    [SerializeField] private GameObject[] bostrrEfect;
     private void Awake()
     {
         rigidbody = GetComponent<Rigidbody>();
@@ -116,6 +118,13 @@ public class SpaceShipController : MonoBehaviour
     public void SetFors()
     {
         _thrustAmount = slider.value;
+
+        for (int i = 0; i < bostrrEfect.Length; i++)
+        {
+            Vector3 scale = bostrrEfect[i].transform.localScale;
+            scale.y = slider.value+.3f;
+            bostrrEfect[i].transform.localScale = scale;
+        }
     }
 
 
