@@ -2,39 +2,51 @@
 
 public class CameraFollow : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    [SerializeField] private Transform target;         // هلی‌کوپتر
-   
-    [SerializeField] private float smoothSpeed = 5f;   // سرعت دنبال‌کردن
-    [SerializeField] private Transform CameraPos;
-    [SerializeField] private Transform CameraPos2;
-    [SerializeField] private bool sowichCam;
-    void FixedUpdate()
+    [SerializeField] private Transform target;        
+    [SerializeField] private GameObject cabin;        
+    [SerializeField] private Transform camPositionDefault;   
+    [SerializeField] private Transform camPositionAlternative; 
+    [SerializeField] private float positionSmoothTime = 9; 
+    [SerializeField] private bool switchCam = false;
+
+    private Transform cam;  
+
+
+    private void Awake()
+    {
+        cam = Camera.main.transform;
+    }
+
+    private void FixedUpdate()
     {
         if (target == null) return;
 
-        if (sowichCam==true)
+        if (switchCam==false)
         {
-            transform.position = CameraPos2.position;
-            transform.rotation = CameraPos2.rotation;
+            Vector3 desiredPosition = camPositionDefault.position;
+
+            Vector3 smoothedPosition = Vector3.Lerp(cam.position, desiredPosition, positionSmoothTime * Time.deltaTime);
+
+            cam.position = smoothedPosition;
+            cam.rotation = camPositionDefault.rotation;
         }
         else
         {
-        Vector3 desiredPosition = CameraPos.position;
-                
-        Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed * Time.deltaTime);
-
-        transform.position = smoothedPosition;
-            transform.rotation = CameraPos.rotation;
-
+            cam.rotation= camPositionAlternative.rotation;
         }
-           
-
+   
     }
-
-
-   public void SwechCamera()
+    private void Update()
     {
-        sowichCam = !sowichCam;
+        if (switchCam)
+        {
+
+            cam.position=camPositionAlternative.position;
+        }
+    }
+    public void SwitchCamera()
+    {
+        switchCam = !switchCam;
+        cabin.SetActive(switchCam);
     }
 }

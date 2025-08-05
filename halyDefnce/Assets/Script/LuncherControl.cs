@@ -24,7 +24,7 @@ public class LuncherControl : MonoBehaviour
 
     [SerializeField] private GameObject bulletPrefab;      // پراب گلوله
     [SerializeField] private Transform firePoint;          // نقطه شلیک
-    [SerializeField] private float bulletSpeed = 20f;      // سرعت گلوله
+    [SerializeField] private float bulletSpeed = 20f;    
     [SerializeField] private float fireRate = 0.5f;        // زمان بین هر شلیک (مثلاً 0.5 یعنی دو گلوله در ثانیه)
 
     private float nextFireTime = 0f;     // زمان مجاز بعدی برای شلیک

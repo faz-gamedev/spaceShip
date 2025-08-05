@@ -45,6 +45,11 @@ public class SpaceShipController : MonoBehaviour
     private Gyroscope gyro;
     [Header("------booster-------")]
     [SerializeField] private GameObject[] bostrrEfect;
+
+    [Header("------cabin anima-------")]
+
+    [SerializeField] private float maxRotationAngle = 45f;
+    [SerializeField] private Transform cabinAhrom;
     private void Awake()
     {
         rigidbody = GetComponent<Rigidbody>();
@@ -59,7 +64,7 @@ public class SpaceShipController : MonoBehaviour
     private void FixedUpdate()
     {
 
-
+        AhromAni();
         if (joystick.Vertical <= 0.1)
         {
             _pitchAmount = joystick.Vertical;
@@ -73,23 +78,23 @@ public class SpaceShipController : MonoBehaviour
         if (joystick.Horizontal <= 0.1)
         {
             _yawAmount = joystick.Horizontal;
-            
+
         }
         else
         {
             _yawAmount = joystick.Horizontal;
-           
+
         }
 
 
         if (joystickRoll.Horizontal <= 0.1)
         {
-          
+
             _rollAmount = -joystickRoll.Horizontal;
         }
         else
         {
-           
+
             _rollAmount = -joystickRoll.Horizontal;
         }
 
@@ -122,12 +127,24 @@ public class SpaceShipController : MonoBehaviour
         for (int i = 0; i < bostrrEfect.Length; i++)
         {
             Vector3 scale = bostrrEfect[i].transform.localScale;
-            scale.y = slider.value+.3f;
+            scale.y = slider.value + .3f;
             bostrrEfect[i].transform.localScale = scale;
         }
     }
 
+    void AhromAni()
+    {
 
+        float horizontalInput = joystick.Horizontal; // چپ و راست
+        float verticalInput = joystick.Vertical;    // بالا و پایین
+
+        // محاسبه زاویه‌ها
+        float targetAngleZ = horizontalInput * maxRotationAngle; // خم شدن به چپ و راست
+        float targetAngleX = verticalInput * maxRotationAngle;     // خم شدن به بالا و پایین
+
+        // اعمال چرخش حول محور X و Z
+        cabinAhrom.localRotation = Quaternion.Euler(targetAngleX, 0f, -targetAngleZ);
+    }
     public void JiroscopActive()
     {
         JiroscopOn = !JiroscopOn;

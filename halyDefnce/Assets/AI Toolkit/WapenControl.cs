@@ -157,7 +157,7 @@ public class WapenControl : MonoBehaviour
         if (Physics.Raycast(ray, out hit, rayLength))
         {
             Vector3 scale = uiSpriteTransform.localScale;
-            Debug.Log("Hit: " + hit.collider.name);
+          
             lookTarget = hit.point;
             if (hit.collider.CompareTag("Enemy"))
             {
