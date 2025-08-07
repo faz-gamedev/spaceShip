@@ -142,7 +142,8 @@ public class SpaceShipController : MonoBehaviour
         float targetAngleZ = horizontalInput * maxRotationAngle; // خم شدن به چپ و راست
         float targetAngleX = verticalInput * maxRotationAngle;     // خم شدن به بالا و پایین
 
-        // اعمال چرخش حول محور X و Z
+       
+
         cabinAhrom.localRotation = Quaternion.Euler(targetAngleX, 0f, -targetAngleZ);
     }
     public void JiroscopActive()

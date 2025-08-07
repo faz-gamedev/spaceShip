@@ -553,10 +553,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraFollow
   target: {fileID: 7214522620890539580}
+  cabin: {fileID: 0}
   camPositionDefault: {fileID: 7652840478074563001}
   camPositionAlternative: {fileID: 7519629928487893895}
   positionSmoothTime: 0.3
-  rotationSmoothTime: 0.3
   switchCam: 0
 --- !u!1 &8793588238352472182
 GameObject:
