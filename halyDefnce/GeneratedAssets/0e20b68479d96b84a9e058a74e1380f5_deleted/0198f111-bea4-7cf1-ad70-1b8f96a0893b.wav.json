@@ -1,0 +1,12 @@
+{
+    "asset": "0e20b68479d96b84a9e058a74e1380f5",
+    "fileName": "0198f111-bea4-7cf1-ad70-1b8f96a0893b.wav",
+    "prompt": "minigun",
+    "negativePrompt": "",
+    "model": "0ee39b33-2893-4e0f-8c46-0e0bdd4eda85",
+    "customSeed": 0,
+    "w3CTraceId": "956c63a9acc5f0423adddbcf142c820f",
+    "duration": 2.3399999141693117,
+    "autoTrim": true,
+    "hasReference": false
+}
