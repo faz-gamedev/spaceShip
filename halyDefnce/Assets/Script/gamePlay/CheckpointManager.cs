@@ -1,15 +1,19 @@
 ﻿using UnityEngine;
+using UnityEngine.Profiling;
 
 public class CheckpointManager : MonoBehaviour
 {
     [Header("Rings ")]
     [SerializeField] private GameObject[] rings;
     [SerializeField] private GameObject guideArow;
+    [SerializeField] private GameObject completLevel;
+    [SerializeField] private GameObject canevsDeActive;
+    [SerializeField] private TimeRecorder recorder;
     private int currentIndex = 0;
 
     private void Start()
     {
-
+        recorder = FindAnyObjectByType<TimeRecorder>();
         ActivateRing(currentIndex); // فقط اولین حلقه فعال باشد
     }
 
@@ -47,8 +51,15 @@ public class CheckpointManager : MonoBehaviour
             }
             else
             {
-                Debug.Log("🎉 همه حلقه‌ها رد شد!");
-                // اینجا مثلاً: مرحله تمام شد یا امتیاز بده
+                Debug.Log("complit level!");
+                completLevel.SetActive(true);
+                canevsDeActive.SetActive(false);
+                if (PlayerPrefs.GetInt("sysen1LevelRichd")== PlayerPrefs.GetInt("levelToPlay"))
+                {
+                    PlayerPrefs.SetInt("sysen1LevelRichd", PlayerPrefs.GetInt("sysen1LevelRichd") + 1);
+                    PlayerPrefs.Save();
+                }
+                recorder.StopRecording();
             }
         }
     }

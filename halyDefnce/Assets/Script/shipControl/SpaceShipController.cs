@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.UI;
 
 public class SpaceShipController : MonoBehaviour
@@ -45,7 +46,10 @@ public class SpaceShipController : MonoBehaviour
     private Gyroscope gyro;
     [Header("------booster-------")]
     [SerializeField] private GameObject[] bostrrEfect;
-
+    [SerializeField] private AudioSource bostrrAudio;
+    [Header("-------Audio-------")]
+    [SerializeField] private AudioSource boosterAudioSource;
+    [SerializeField] private AudioClip startBoosterAudio;
     [Header("------cabin anima-------")]
 
     [SerializeField] private float maxRotationAngle = 45f;
@@ -120,15 +124,34 @@ public class SpaceShipController : MonoBehaviour
             rigidbody.AddForce(transform.forward * (_thrustForce * _thrustAmount * Time.fixedDeltaTime));
         }
     }
+
+    bool ChekEngineUp;
     public void SetFors()
     {
-        _thrustAmount = slider.value;
 
+
+        if (ChekEngineUp == false && slider.value >= 0)
+        {
+            boosterAudioSource.PlayOneShot(startBoosterAudio);
+        }
+        if (slider.value == 0)
+        {
+           
+           
+             ChekEngineUp = false;
+        }
+        else
+        {
+            ChekEngineUp = true;
+        }
+        _thrustAmount = slider.value;
+        bostrrAudio.volume = slider.value;
         for (int i = 0; i < bostrrEfect.Length; i++)
         {
             Vector3 scale = bostrrEfect[i].transform.localScale;
             scale.y = slider.value + .3f;
             bostrrEfect[i].transform.localScale = scale;
+
         }
     }
 
@@ -142,7 +165,7 @@ public class SpaceShipController : MonoBehaviour
         float targetAngleZ = horizontalInput * maxRotationAngle; // خم شدن به چپ و راست
         float targetAngleX = verticalInput * maxRotationAngle;     // خم شدن به بالا و پایین
 
-       
+
 
         cabinAhrom.localRotation = Quaternion.Euler(targetAngleX, 0f, -targetAngleZ);
     }

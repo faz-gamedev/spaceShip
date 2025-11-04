@@ -1,0 +1,12 @@
+{
+    "asset": "39496c3a7e5042d46ad7c47701954588",
+    "fileName": "019970ad-9a46-7c80-81f1-8e19ec6a908c.wav",
+    "prompt": "The sound of a spaceship booster in space",
+    "negativePrompt": "",
+    "model": "0ee39b33-2893-4e0f-8c46-0e0bdd4eda85",
+    "customSeed": -1,
+    "w3CTraceId": "639e82a1c92a40f463b07bfce5546565",
+    "duration": 10.0,
+    "autoTrim": false,
+    "hasReference": false
+}

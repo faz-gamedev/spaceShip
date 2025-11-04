@@ -127,7 +127,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   damage: 0
+  efect: {fileID: 6149846003684424815, guid: bdb37e2ddf91ae345be83f920c266edb, type: 3}
   maxHealth: 434007.9
+  lifeTime: 0
   shakeDuration: 0.2
   shakeMagnitude: 0.3
 --- !u!114 &5822031464427311648

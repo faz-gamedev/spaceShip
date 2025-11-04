@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.Pool;
+using UnityEngine.Profiling;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
 public class WapenControl : MonoBehaviour
@@ -20,14 +21,15 @@ public class WapenControl : MonoBehaviour
 
     [Header("aime ")]
     public float rayLength = 1000f;
-    [SerializeField] private RectTransform uiSpriteTransform; // آبجکت UI
-    [SerializeField] private Camera uiCamera; // دوربینی که Canvas روی اون رندر میشه (برای Screen Space - Camera)
-    [SerializeField] private Camera worldCamera; // دوربین سه‌بعدی اصلی   
+    [SerializeField] private RectTransform uiSpriteTransform; 
+    [SerializeField] private Camera uiCamera; 
+    [SerializeField] private Camera worldCamera;   
     [SerializeField] private GameObject wapen;
     [SerializeField] private FixedJoystick joystick;
     [Header("wapen ")]
 
     [SerializeField] private GameObject bulletPrefab;      
+    [SerializeField] private String sundWapen;      
     [SerializeField] private Transform[] firePoint;         
     [SerializeField] private float bulletSpeed = 20f;      
     [SerializeField] private float fireRate = 0.5f;    
@@ -52,8 +54,10 @@ public class WapenControl : MonoBehaviour
     [Header("pool Cunt")]
     [SerializeField] private int minValuePool = 10;
     [SerializeField] private int maxValuePool = 50;
+   
     private void Start()
     {
+       
         bulletPool = new ObjectPool<GameObject>(
         CreateBullet,
         OnGetBullet,
@@ -183,6 +187,10 @@ public class WapenControl : MonoBehaviour
         // چرخش آبجکت به سمت نقطه هدف
         for (int i = 0; i < firePoint.Length; i++)
         {
+            if (lookTarget==null)
+            {
+                return;
+            }
             firePoint[i].transform.LookAt(lookTarget);
 
         }
@@ -239,8 +247,8 @@ public class WapenControl : MonoBehaviour
         if (bulletPrefab == null || firePoint == null) return;
         for (int i = 0; i < firePoint.Length; i++)
         {
-          
-            GameObject bullet = bulletPool.Get();
+           
+              GameObject bullet = bulletPool.Get();
             bullet.transform.position = firePoint[i].position;
             bullet.transform.rotation = firePoint[i].rotation;
         }

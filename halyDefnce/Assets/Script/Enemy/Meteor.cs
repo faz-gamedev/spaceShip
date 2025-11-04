@@ -5,7 +5,8 @@ using UnityEngine.Pool;
 public class Meteor : MonoBehaviour
 {
     [Header(" damage Seting")]
-    [SerializeField] private int damage;
+    public int damage;
+    [SerializeField] private GameObject efect;
     [Header(" helth setinge")]
     public float maxHealth = 100f;
     private float currentHealth;
@@ -16,13 +17,10 @@ public class Meteor : MonoBehaviour
 
     private Vector3 originalPosition;
 
-    private ObjectPool<GameObject> pool;
 
 
-    public void SetPool(ObjectPool<GameObject> pool)
-    {
-        this.pool = pool;
-    }
+
+
     void Start()
     {
         currentHealth = maxHealth;
@@ -65,55 +63,33 @@ public class Meteor : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        // بازگشت به پول پس از برخورد
+
 
         if (other.CompareTag("Player"))
         {
-            other.GetComponent<PlayerHealth>()?.TakeDamage(damage);
+            DestroyMeteor();
         }
-        pool.Release(gameObject);
-        Debug.Log("takeDamge===-felfopkoefoewooooooooooooooooooooooooooooooooooooooo");
+
+
     }
 
 
-    private void OnTriggerStay(Collider other)
-    {
-        // بازگشت به پول پس از برخورد
 
-        if (other.CompareTag("Player"))
-        {
-            other.GetComponent<PlayerHealth>()?.TakeDamage(damage);
-        }
-
-        if (pool != null)
-        {
-
-            pool.Release(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-
-    }
     private void DestroyMeteor()
     {
 
+
         Destroy(gameObject);
+
+        GameObject a = Instantiate(efect, transform.position, transform.rotation);
+        Destroy(a, 2);
     }
 
 
 
-    private void OnEnable()
-    {
-        StartCoroutine(DestroyAfterSeconds(gameObject, lifeTime));
-    }
 
 
 
-    IEnumerator DestroyAfterSeconds(GameObject obj, float seconds)
-    {
-        yield return new WaitForSeconds(seconds);
-        pool.Release(gameObject);
-    }
+
+
 }

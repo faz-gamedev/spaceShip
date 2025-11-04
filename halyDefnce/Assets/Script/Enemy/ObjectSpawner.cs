@@ -23,14 +23,14 @@ public class ObjectSpawner : MonoBehaviour
             actionOnRelease: obj => obj.SetActive(false),
             actionOnDestroy: obj => Destroy(obj),
             collectionCheck: false,
-            defaultCapacity: 10,
+            defaultCapacity: 20,
             maxSize: 100
         );
     }
     private GameObject CreateBullet()
     {
         GameObject metoer = Instantiate(objectPrefab,gameObject.transform);
-        metoer.GetComponent<Meteor>().SetPool(objectPool);
+     //   metoer.GetComponent<Meteor>().SetPool(objectPool);
         return metoer;
     }
     private void Update()

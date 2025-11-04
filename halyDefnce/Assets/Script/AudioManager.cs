@@ -47,7 +47,7 @@ public class AudioManager : MonoBehaviour
     }
     private void Start()
     {
-        //Play("Bakgrundsund");
+        Play("Bakgrundsund");
     }
     public void Play(string name)
     {

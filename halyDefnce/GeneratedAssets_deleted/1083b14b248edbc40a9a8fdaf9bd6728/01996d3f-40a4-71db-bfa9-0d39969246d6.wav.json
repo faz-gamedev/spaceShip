@@ -1,0 +1,12 @@
+{
+    "asset": "1083b14b248edbc40a9a8fdaf9bd6728",
+    "fileName": "01996d3f-40a4-71db-bfa9-0d39969246d6.wav",
+    "prompt": "A spaceship's laser gun",
+    "negativePrompt": "",
+    "model": "0ee39b33-2893-4e0f-8c46-0e0bdd4eda85",
+    "customSeed": -1,
+    "w3CTraceId": "7e49c0a099327a7c11e4f047e65d848b",
+    "duration": 1.0,
+    "autoTrim": true,
+    "hasReference": false
+}

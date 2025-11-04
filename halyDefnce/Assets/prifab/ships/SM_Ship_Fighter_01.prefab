@@ -260,7 +260,7 @@ Transform:
   m_GameObject: {fileID: 6813308142054097134}
   serializedVersion: 2
   m_LocalRotation: {x: -0.046468742, y: -0.02787717, z: 0.0012245965, w: -0.99853}
-  m_LocalPosition: {x: -0.1, y: 0.352, z: 3.988}
+  m_LocalPosition: {x: -0.098, y: 0.676, z: 4.018}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -314,6 +314,7 @@ GameObject:
   - component: {fileID: 7812643147142292030}
   - component: {fileID: 2388873243037003766}
   - component: {fileID: 4900470327489816251}
+  - component: {fileID: 6528126292057185062}
   m_Layer: 0
   m_Name: SM_Ship_Fighter_01
   m_TagString: Player
@@ -483,7 +484,7 @@ MonoBehaviour:
   worldCamera: {fileID: 0}
   wapen: {fileID: 1345295288391054749}
   joystick: {fileID: 0}
-  bulletPrefab: {fileID: 1980803777038259093, guid: 4f4a7f737044c274ea11fbecbcdfc61d, type: 3}
+  bulletPrefab: {fileID: 8858460585833356395, guid: 5beb31addf944334ebe91a1ec1a01d85, type: 3}
   firePoint:
   - {fileID: 2811666183557981900}
   - {fileID: 1216772540567640379}
@@ -494,8 +495,8 @@ MonoBehaviour:
   maxAmmo: 168
   ammoCunt: {fileID: 0}
   cooldown: 5
-  minValuePool: 10
-  maxValuePool: 50
+  minValuePool: 20
+  maxValuePool: 100
 --- !u!65 &7812643147142292030
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -529,6 +530,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a54765b72c406d14fb5300227f20f21e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  faledPanel: {fileID: 0}
+  disabelCanves: {fileID: 0}
   maxHealth: 100
   healthSlider: {fileID: 0}
   onTakeDamage:
@@ -553,11 +556,47 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraFollow
   target: {fileID: 7214522620890539580}
-  cabin: {fileID: 0}
+  cabin: {fileID: 7873388817675902973}
   camPositionDefault: {fileID: 7652840478074563001}
   camPositionAlternative: {fileID: 7519629928487893895}
-  positionSmoothTime: 0.3
+  positionSmoothTime: 9
   switchCam: 0
+--- !u!114 &6528126292057185062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8586004165282609583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb0503d2416d6e1488c4a0eb44dfd893, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WapenControl
+  moveSpeed: 406.4
+  minBounds: {x: -300, y: 200}
+  maxBounds: {x: 300, y: 400}
+  returnSpeed: 3.84
+  initialPosition: {x: -34.34, y: 327.5}
+  rayLength: 1000
+  uiSpriteTransform: {fileID: 0}
+  uiCamera: {fileID: 0}
+  worldCamera: {fileID: 0}
+  wapen: {fileID: 1345295288391054749}
+  joystick: {fileID: 0}
+  bulletPrefab: {fileID: 1980803777038259093, guid: 4f4a7f737044c274ea11fbecbcdfc61d, type: 3}
+  firePoint:
+  - {fileID: 2811666183557981900}
+  - {fileID: 1216772540567640379}
+  - {fileID: 8223970976610731897}
+  bulletSpeed: 191.3
+  fireRate: 0.2
+  fireActive: 0
+  maxAmmo: 168
+  ammoCunt: {fileID: 0}
+  cooldown: 5
+  minValuePool: 10
+  maxValuePool: 50
 --- !u!1 &8793588238352472182
 GameObject:
   m_ObjectHideFlags: 0
@@ -5696,6 +5735,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Veh_POV_Cockpit_01
       objectReference: {fileID: 0}
+    - target: {fileID: 1825890367484318, guid: e2db6f85e0afb114f9e76a0c09ead489, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4059934904535744, guid: e2db6f85e0afb114f9e76a0c09ead489, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.16
@@ -5773,6 +5816,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e2db6f85e0afb114f9e76a0c09ead489, type: 3}
+--- !u!1 &7873388817675902973 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1825890367484318, guid: e2db6f85e0afb114f9e76a0c09ead489, type: 3}
+  m_PrefabInstance: {fileID: 7873868612410961507}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7875658528224027811 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4059934904535744, guid: e2db6f85e0afb114f9e76a0c09ead489, type: 3}

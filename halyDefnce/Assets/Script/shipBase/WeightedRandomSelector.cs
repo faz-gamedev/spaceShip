@@ -6,8 +6,8 @@ using UnityEngine.UI;
 public class WeightedRandomSelector : MonoBehaviour
 {
 
-    [Tooltip("احتمال برای هر عدد از 1 تا 10 (باید 10 مقدار وارد شود)")]
-    public List<float> weights; // پیش‌فرض همه برابر
+   
+    public List<float> weights; 
     public List<Image> image;
     public List<GameObject> giftPanel;
 
@@ -34,7 +34,7 @@ public class WeightedRandomSelector : MonoBehaviour
             int selected = GetWeightedRandom();
             audioMangger.Play("klick");
             image[selected].sprite = green;
-            Debug.Log("Selected Number: " + (selected + 1)); // +1 چون ایندکس از 0 شروع میشه
+            Debug.Log("Selected Number: " + (selected + 1)); 
             yield return new WaitForSeconds(.1f);
 
             if (i != totalSelections - 1)

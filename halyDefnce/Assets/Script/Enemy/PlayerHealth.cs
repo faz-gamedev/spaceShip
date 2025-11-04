@@ -4,6 +4,15 @@ using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
+    [Header("Audio")]
+    [SerializeField] private AudioSource audioSource; 
+    [SerializeField] private AudioClip soundClip;
+    [Header("Effect")]
+    [SerializeField] private GameObject Shield;
+    [Header("falde Settings")]
+
+    [SerializeField] private GameObject faledPanel;
+    [SerializeField] private GameObject disabelCanves;
     [Header("Health Settings")]
     [SerializeField] private int maxHealth = 100;
     private int currentHealth;
@@ -30,7 +39,9 @@ public class PlayerHealth : MonoBehaviour
     public void TakeDamage(int damageAmount)
     {
         if (currentHealth <= 0) return;
-
+        GetComponent<ShakeObjact>().Shake(0.3f, 0.4f);
+        StartCoroutine(ActivateAndDeactivate(Shield, 2f));
+        PlaySound();
         currentHealth -= damageAmount;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
 
@@ -38,13 +49,13 @@ public class PlayerHealth : MonoBehaviour
         UpdateHealthUI();
         healthSlider.value = currentHealth;
         Debug.Log("Player took damage: " + damageAmount + " | Current Health: " + currentHealth);
-
+        
         if (currentHealth <= 0)
         {
             Die();
         }
     }
-
+  
     public void Heal(int healAmount)
     {
         currentHealth += healAmount;
@@ -58,9 +69,11 @@ public class PlayerHealth : MonoBehaviour
 
     private void Die()
     {
-        Debug.Log("Player died.");
-        onDeath?.Invoke();
-        // مثلا: کنترل غیر فعال، انیمیشن، پایان بازی و غیره...
+        faledPanel.SetActive(true);
+        disabelCanves.SetActive(false);
+         onDeath?.Invoke();
+        gameObject.SetActive(false);
+      
     }
 
     private void UpdateHealthUI()
@@ -73,4 +86,40 @@ public class PlayerHealth : MonoBehaviour
 
     public int GetCurrentHealth() => currentHealth;
     public int GetMaxHealth() => maxHealth;
+
+    private void OnTriggerEnter(Collider other)
+    {
+        // بازگشت به پول پس از برخورد
+     
+        if (other.CompareTag("Enemy"))
+        {
+            TakeDamage(100);
+
+        }
+        else
+        {
+        //    TakeDamage(10);
+        }
+       
+    }
+
+
+
+    public void PlaySound()
+    {
+        if (soundClip == null)
+        {
+            Debug.LogWarning("❗ No sound clip assigned to PlaySound on " + gameObject.name);
+            return;
+        }
+
+        audioSource.PlayOneShot(soundClip);
+    }
+
+    private System.Collections.IEnumerator ActivateAndDeactivate(GameObject obj, float duration)
+    {
+        obj.SetActive(true);
+        yield return new WaitForSeconds(duration);
+        obj.SetActive(false);
+    }
 }
