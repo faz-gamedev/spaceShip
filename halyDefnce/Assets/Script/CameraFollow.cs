@@ -4,6 +4,7 @@ public class CameraFollow : MonoBehaviour
 {
     [SerializeField] private Transform target;        
     [SerializeField] private GameObject cabin;        
+    [SerializeField] private MeshRenderer shipMeshe;        
     [SerializeField] private Transform camPositionDefault;   
     [SerializeField] private Transform camPositionAlternative; 
     [SerializeField] private float positionSmoothTime = 9; 
@@ -48,5 +49,7 @@ public class CameraFollow : MonoBehaviour
     {
         switchCam = !switchCam;
         cabin.SetActive(switchCam);
+        if(shipMeshe!=null)
+        shipMeshe.enabled = !switchCam;
     }
 }

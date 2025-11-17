@@ -16,6 +16,14 @@ public class starLevel : MonoBehaviour
     [SerializeField] private RTLTextMeshPro levelToPLay;
     [SerializeField] private RTLTextMeshPro rcord;
     [SerializeField] private RTLTextMeshPro coinResive;
+
+
+
+    [Header("stars")]
+
+    [SerializeField] private GameObject starImage1;
+    [SerializeField] private GameObject starImage2;
+    [SerializeField] private GameObject starImage3;
     SaveData data = new SaveData
     {
 
@@ -40,13 +48,14 @@ public class starLevel : MonoBehaviour
 
 
 
- 
+
     public void SetLevelInfo(int index)
     {
-        rcord.text = data.rcord[index].ToString();
-        int a = index+1;
+        rcord.text = data.rcord[index].ToString("F2");
+        int a = index + 1;
         levelToPLay.text = a.ToString();
         coinResive.text = lvelRivard[index].ToString();
+        CheckStar(index);
     }
     public void LookLevls()
     {
@@ -72,4 +81,27 @@ public class starLevel : MonoBehaviour
         }
     }
 
+
+    public void CheckStar(int level)
+    {
+
+        starImage1.SetActive(false);
+        starImage2.SetActive(false);
+        starImage3.SetActive(false);
+        if (data.star[level] == 3)
+        {
+            starImage1.SetActive(true);
+            starImage2.SetActive(true);
+            starImage3.SetActive(true);
+        }
+        else if (data.star[level] == 3)
+        {
+            starImage1.SetActive(true);
+            starImage2.SetActive(true);
+        }
+        else if (data.star[level] == 1)
+        {
+            starImage1.SetActive(true);
+        }
+    }
 }

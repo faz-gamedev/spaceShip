@@ -12,14 +12,14 @@ public static class SecureSaveManager
         string json = JsonUtility.ToJson(data);
         string encrypted = EncryptionUtility.Encrypt(json);
         File.WriteAllText(savePath, encrypted);
-        Debug.Log("✅ بازی ذخیره شد (رمزنگاری شده).");
+        Debug.Log(" Game saved (encrypted)).");
     }
 
     public static SaveData LoadGame()
     {
         if (!File.Exists(savePath))
         {
-            Debug.Log("⚠ فایل سیو پیدا نشد. بازگشت به داده پیش‌فرض.");
+            Debug.Log(" Save file not found. Reverting to default data.");
             return new SaveData();
         }
 
@@ -31,7 +31,7 @@ public static class SecureSaveManager
         }
         catch
         {
-            Debug.LogError("❌ خطا در بارگذاری یا رمزگشایی. داده جدید برگردانده می‌شود.");
+            Debug.LogError(" Error loading or decoding. New data will be returned..");
             return new SaveData();
         }
     }
@@ -41,7 +41,7 @@ public static class SecureSaveManager
         if (File.Exists(savePath))
         {
             File.Delete(savePath);
-            Debug.Log("🗑 فایل سیو حذف شد.");
+            Debug.Log("Save file deleted.");
         }
     }
 }

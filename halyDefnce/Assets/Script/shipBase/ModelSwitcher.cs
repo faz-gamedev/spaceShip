@@ -10,7 +10,7 @@ public class ModelSwitcher : MonoBehaviour
    
     [SerializeField] private int selntionIndex;
     [SerializeField] private int lucchek;
-    [SerializeField] private int[] levelTouUnlock;
+  
     [SerializeField] private TypewriterEffect typewriterEffect;
     SaveData data = new SaveData
     {
@@ -52,9 +52,11 @@ public class ModelSwitcher : MonoBehaviour
     public void UpdatInfo()
     {
         data = SecureSaveManager.LoadGame();
-       
 
-        ShowSelectedModel();
+
+        models[data.airshipActive].SetActive(true);
+
+        highlight[data.airshipActive].color = Color.green;
 
     }
 
@@ -63,7 +65,7 @@ public class ModelSwitcher : MonoBehaviour
 
     void ShowSelectedModel()
     {
-
+        
         for (int i = 0; i < models.Count; i++)
         {
             highlight[i].color = Color.black;
@@ -83,13 +85,7 @@ public class ModelSwitcher : MonoBehaviour
     public void NextModel()
     {
         data = SecureSaveManager.LoadGame();
-        if (levelTouUnlock[selntionIndex + 1] > lucchek)
-        {
-            Debug.Log("need upgarad the building !!!");
-            typewriterEffect.StartTypingNew("نیاز به ارتقا دادن سختمان هست! ");
-
-            return;
-        }
+       
 
         selntionIndex++;
         if (selntionIndex >= models.Count)
@@ -114,13 +110,7 @@ public class ModelSwitcher : MonoBehaviour
     public void ChengSelction(int selct)
     {
         data = SecureSaveManager.LoadGame();
-        if (levelTouUnlock[selct] > lucchek)
-        {
-            Debug.Log("need upgarad the building !!!");
-            typewriterEffect.StartTypingNew("نیاز به ارتقا دادن سختمان هست! ");
-
-            return;
-        }
+     
         selntionIndex = selct;
         if (selntionIndex < 0)
             selntionIndex = models.Count - 1;

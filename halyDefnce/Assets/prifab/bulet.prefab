@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4975052240290858426}
   - component: {fileID: 9191300294185707136}
   - component: {fileID: 1190171501003174035}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: FadeLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -137,7 +137,7 @@ GameObject:
   m_Component:
   - component: {fileID: 414280611535354427}
   - component: {fileID: 7636311429629587618}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ProjTrail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -288,7 +288,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6245619402606811414}
   - component: {fileID: 848855825728942650}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ProjTrail2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -440,7 +440,7 @@ GameObject:
   - component: {fileID: 4321844698614825036}
   - component: {fileID: 7481024386766261497}
   - component: {fileID: 4618885150519017021}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Digital Projectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5290,7 +5290,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7960488782018383889}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Trails
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5327,7 +5327,7 @@ GameObject:
   - component: {fileID: 6276323626853858016}
   - component: {fileID: 3295325832347224513}
   - component: {fileID: 63059741940201094}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Glow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5417,7 +5417,7 @@ GameObject:
   - component: {fileID: 286980918082678577}
   - component: {fileID: 4841002583335244695}
   - component: {fileID: 4011280591415645202}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ProjectileHead
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5519,7 +5519,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1370662057494177881}
   - component: {fileID: 4117155307502003747}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ProjSmallTrail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5674,7 +5674,7 @@ GameObject:
   - component: {fileID: 100708118111439949}
   - component: {fileID: 2661965444120509663}
   - component: {fileID: -4373645622260826118}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: bulet
   m_TagString: bolet
   m_Icon: {fileID: 0}
@@ -5690,8 +5690,8 @@ Transform:
   m_GameObject: {fileID: 8858460585833356395}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.52397, y: 0, z: -0.00417}
-  m_LocalScale: {x: 0.66227067, y: 0.66227067, z: 1.0792363}
+  m_LocalPosition: {x: -0.52397, y: 0, z: 0.011989}
+  m_LocalScale: {x: 0.75008774, y: 0.75008774, z: 1.222343}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4321844698614825036}
@@ -5745,10 +5745,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   damage: 49
-  speed: 214.6
+  speed: 496.5
   lifeTime: 5.15
-  hitEfx: {fileID: 8468921558914610855, guid: 5974ebb80d1aad844b248f70a322305d, type: 3}
-  ofset: {x: -1, y: -1, z: 1}
+  hitEfx: {fileID: 6301532429455414652, guid: bba3078b682e31b4f80e2c232ce04abc, type: 3}
 --- !u!82 &2661965444120509663
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5877,7 +5876,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1254036686983963593}
   - component: {fileID: 475912272155660428}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ProjGlowTrail
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -173,4 +173,13 @@ public class SpaceShipController : MonoBehaviour
     {
         JiroscopOn = !JiroscopOn;
     }
+
+
+    public void DeActiveAll()
+    {
+        _pitchAmount = 0;
+        _yawAmount = 0;
+        _rollAmount = 0;
+        slider.value = 0;
+    }
 }

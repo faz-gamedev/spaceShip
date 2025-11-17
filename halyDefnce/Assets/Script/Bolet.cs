@@ -5,8 +5,8 @@ using UnityEngine.Pool;
 public class Bolet : MonoBehaviour
 {
     [SerializeField] private int damage = 20;
-    [SerializeField] private float speed = 20f;        // سرعت گلوله
-    [SerializeField] private float lifeTime = 5f;      // مدت زمان عمر گلوله (ثانیه)
+    [SerializeField] private float speed = 20f;       
+    [SerializeField] private float lifeTime = 5f;     
     [SerializeField] private GameObject hitEfx;
 
     void Start()
@@ -16,7 +16,7 @@ public class Bolet : MonoBehaviour
 
     void Update()
     {
-        // حرکت گلوله به جلو
+      
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
     }
 
@@ -28,11 +28,7 @@ public class Bolet : MonoBehaviour
         this.pool = pool;
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
 
-
-    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Enemy"))
@@ -55,8 +51,8 @@ public class Bolet : MonoBehaviour
         if (other.CompareTag("Enemy"))
         {
             other.GetComponent<Meteor>()?.TakeDamage(damage);
-        }
         pool.Release(gameObject);
+        }
 
     }
 

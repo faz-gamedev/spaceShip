@@ -50,7 +50,7 @@ public class TimeRecorder : MonoBehaviour
         if (isRecording)
         {
             recordTime += Time.deltaTime;
-            recordText.text = recordTime.ToString("F2"); // Ïæ ÑÞã ÇÚÔÇÑ
+            recordText.text = recordTime.ToString("F2");
         }
     }
 
@@ -69,7 +69,10 @@ public class TimeRecorder : MonoBehaviour
         recordTextComplitLevel.text = recordTime.ToString("F2");
     }
 
-
+    public  float TimeRcord()
+    {
+        return recordTime;
+    }
 
 
     public void SaveRicord()

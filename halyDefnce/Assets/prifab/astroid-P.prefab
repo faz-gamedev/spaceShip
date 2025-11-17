@@ -125,7 +125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   damage: 0
-  efect: {fileID: 6149846003684424815, guid: bdb37e2ddf91ae345be83f920c266edb, type: 3}
+  efect: {fileID: 1069793763513450130, guid: e83dbdece552dfb4d99f7d0ed2363ed0, type: 3}
   maxHealth: 444
   lifeTime: 0
   shakeDuration: 0.2
@@ -156,7 +156,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1924, y: -175, z: 308}
-  m_LocalScale: {x: 1.1538326, y: 1.1538326, z: 1.1538326}
+  m_LocalScale: {x: 0.49036598, y: 0.49036598, z: 0.49036598}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 804752959425035526}
@@ -204,7 +204,6 @@ GameObject:
   - component: {fileID: 3963028129011491645}
   - component: {fileID: 8368382849288870267}
   - component: {fileID: 7991738515959732413}
-  - component: {fileID: 8245327089901471802}
   m_Layer: 0
   m_Name: SM_Env_Asteroid_1 (16)
   m_TagString: Enemy
@@ -317,26 +316,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   damage: 0
-  efect: {fileID: 6149846003684424815, guid: bdb37e2ddf91ae345be83f920c266edb, type: 3}
+  efect: {fileID: 1069793763513450130, guid: e83dbdece552dfb4d99f7d0ed2363ed0, type: 3}
   maxHealth: 444
   lifeTime: 0
   shakeDuration: 0.2
   shakeMagnitude: 0.52
---- !u!114 &8245327089901471802
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 428081086111553459}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 210f9f11e49122548a8e302ff747fc31, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CustomRotation
-  rotationAxis: {x: 1, y: 1, z: 1}
-  rotationSpeed: 7
-  rotateInWorldSpace: 1
 --- !u!1 &1297804659384107258
 GameObject:
   m_ObjectHideFlags: 0
@@ -462,7 +446,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   damage: 0
-  efect: {fileID: 6149846003684424815, guid: bdb37e2ddf91ae345be83f920c266edb, type: 3}
+  efect: {fileID: 1069793763513450130, guid: e83dbdece552dfb4d99f7d0ed2363ed0, type: 3}
   maxHealth: 444
   lifeTime: 0
   shakeDuration: 0.2
@@ -593,7 +577,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   damage: 0
-  efect: {fileID: 6149846003684424815, guid: bdb37e2ddf91ae345be83f920c266edb, type: 3}
+  efect: {fileID: 1069793763513450130, guid: e83dbdece552dfb4d99f7d0ed2363ed0, type: 3}
   maxHealth: 444
   lifeTime: 0
   shakeDuration: 0.2
@@ -738,7 +722,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   damage: 0
-  efect: {fileID: 6149846003684424815, guid: bdb37e2ddf91ae345be83f920c266edb, type: 3}
+  efect: {fileID: 1069793763513450130, guid: e83dbdece552dfb4d99f7d0ed2363ed0, type: 3}
   maxHealth: 444
   lifeTime: 0
   shakeDuration: 0.2
@@ -868,7 +852,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   damage: 0
-  efect: {fileID: 6149846003684424815, guid: bdb37e2ddf91ae345be83f920c266edb, type: 3}
+  efect: {fileID: 1069793763513450130, guid: e83dbdece552dfb4d99f7d0ed2363ed0, type: 3}
   maxHealth: 444
   lifeTime: 0
   shakeDuration: 0.2
@@ -998,7 +982,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   damage: 0
-  efect: {fileID: 6149846003684424815, guid: bdb37e2ddf91ae345be83f920c266edb, type: 3}
+  efect: {fileID: 1069793763513450130, guid: e83dbdece552dfb4d99f7d0ed2363ed0, type: 3}
   maxHealth: 444
   lifeTime: 0
   shakeDuration: 0.2
@@ -1128,7 +1112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   damage: 0
-  efect: {fileID: 6149846003684424815, guid: bdb37e2ddf91ae345be83f920c266edb, type: 3}
+  efect: {fileID: 1069793763513450130, guid: e83dbdece552dfb4d99f7d0ed2363ed0, type: 3}
   maxHealth: 444
   lifeTime: 0
   shakeDuration: 0.2
@@ -1258,7 +1242,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   damage: 0
-  efect: {fileID: 6149846003684424815, guid: bdb37e2ddf91ae345be83f920c266edb, type: 3}
+  efect: {fileID: 1069793763513450130, guid: e83dbdece552dfb4d99f7d0ed2363ed0, type: 3}
   maxHealth: 444
   lifeTime: 0
   shakeDuration: 0.2
@@ -1388,7 +1372,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   damage: 0
-  efect: {fileID: 6149846003684424815, guid: bdb37e2ddf91ae345be83f920c266edb, type: 3}
+  efect: {fileID: 1069793763513450130, guid: e83dbdece552dfb4d99f7d0ed2363ed0, type: 3}
   maxHealth: 444
   lifeTime: 0
   shakeDuration: 0.2
@@ -1518,7 +1502,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   damage: 0
-  efect: {fileID: 6149846003684424815, guid: bdb37e2ddf91ae345be83f920c266edb, type: 3}
+  efect: {fileID: 1069793763513450130, guid: e83dbdece552dfb4d99f7d0ed2363ed0, type: 3}
   maxHealth: 444
   lifeTime: 0
   shakeDuration: 0.2
@@ -1648,7 +1632,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   damage: 0
-  efect: {fileID: 6149846003684424815, guid: bdb37e2ddf91ae345be83f920c266edb, type: 3}
+  efect: {fileID: 1069793763513450130, guid: e83dbdece552dfb4d99f7d0ed2363ed0, type: 3}
   maxHealth: 444
   lifeTime: 0
   shakeDuration: 0.2
@@ -1778,7 +1762,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   damage: 0
-  efect: {fileID: 6149846003684424815, guid: bdb37e2ddf91ae345be83f920c266edb, type: 3}
+  efect: {fileID: 1069793763513450130, guid: e83dbdece552dfb4d99f7d0ed2363ed0, type: 3}
   maxHealth: 444
   lifeTime: 0
   shakeDuration: 0.2
@@ -1908,7 +1892,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   damage: 0
-  efect: {fileID: 6149846003684424815, guid: bdb37e2ddf91ae345be83f920c266edb, type: 3}
+  efect: {fileID: 1069793763513450130, guid: e83dbdece552dfb4d99f7d0ed2363ed0, type: 3}
   maxHealth: 444
   lifeTime: 0
   shakeDuration: 0.2
@@ -2038,7 +2022,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   damage: 0
-  efect: {fileID: 6149846003684424815, guid: bdb37e2ddf91ae345be83f920c266edb, type: 3}
+  efect: {fileID: 1069793763513450130, guid: e83dbdece552dfb4d99f7d0ed2363ed0, type: 3}
   maxHealth: 444
   lifeTime: 0
   shakeDuration: 0.2
@@ -2168,7 +2152,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   damage: 0
-  efect: {fileID: 6149846003684424815, guid: bdb37e2ddf91ae345be83f920c266edb, type: 3}
+  efect: {fileID: 1069793763513450130, guid: e83dbdece552dfb4d99f7d0ed2363ed0, type: 3}
   maxHealth: 444
   lifeTime: 0
   shakeDuration: 0.2
@@ -2298,7 +2282,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   damage: 0
-  efect: {fileID: 6149846003684424815, guid: bdb37e2ddf91ae345be83f920c266edb, type: 3}
+  efect: {fileID: 1069793763513450130, guid: e83dbdece552dfb4d99f7d0ed2363ed0, type: 3}
   maxHealth: 444
   lifeTime: 0
   shakeDuration: 0.2
@@ -2428,7 +2412,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   damage: 0
-  efect: {fileID: 6149846003684424815, guid: bdb37e2ddf91ae345be83f920c266edb, type: 3}
+  efect: {fileID: 1069793763513450130, guid: e83dbdece552dfb4d99f7d0ed2363ed0, type: 3}
   maxHealth: 444
   lifeTime: 0
   shakeDuration: 0.2
@@ -2558,7 +2542,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   damage: 0
-  efect: {fileID: 6149846003684424815, guid: bdb37e2ddf91ae345be83f920c266edb, type: 3}
+  efect: {fileID: 1069793763513450130, guid: e83dbdece552dfb4d99f7d0ed2363ed0, type: 3}
   maxHealth: 444
   lifeTime: 0
   shakeDuration: 0.2
@@ -2688,7 +2672,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   damage: 0
-  efect: {fileID: 6149846003684424815, guid: bdb37e2ddf91ae345be83f920c266edb, type: 3}
+  efect: {fileID: 1069793763513450130, guid: e83dbdece552dfb4d99f7d0ed2363ed0, type: 3}
   maxHealth: 444
   lifeTime: 0
   shakeDuration: 0.2
@@ -2818,7 +2802,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   damage: 0
-  efect: {fileID: 6149846003684424815, guid: bdb37e2ddf91ae345be83f920c266edb, type: 3}
+  efect: {fileID: 1069793763513450130, guid: e83dbdece552dfb4d99f7d0ed2363ed0, type: 3}
   maxHealth: 444
   lifeTime: 0
   shakeDuration: 0.2
@@ -2948,7 +2932,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   damage: 0
-  efect: {fileID: 6149846003684424815, guid: bdb37e2ddf91ae345be83f920c266edb, type: 3}
+  efect: {fileID: 1069793763513450130, guid: e83dbdece552dfb4d99f7d0ed2363ed0, type: 3}
   maxHealth: 444
   lifeTime: 0
   shakeDuration: 0.2
@@ -3078,7 +3062,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   damage: 0
-  efect: {fileID: 6149846003684424815, guid: bdb37e2ddf91ae345be83f920c266edb, type: 3}
+  efect: {fileID: 1069793763513450130, guid: e83dbdece552dfb4d99f7d0ed2363ed0, type: 3}
   maxHealth: 444
   lifeTime: 0
   shakeDuration: 0.2
@@ -3208,7 +3192,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   damage: 0
-  efect: {fileID: 6149846003684424815, guid: bdb37e2ddf91ae345be83f920c266edb, type: 3}
+  efect: {fileID: 1069793763513450130, guid: e83dbdece552dfb4d99f7d0ed2363ed0, type: 3}
   maxHealth: 444
   lifeTime: 0
   shakeDuration: 0.2
@@ -3338,7 +3322,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   damage: 0
-  efect: {fileID: 6149846003684424815, guid: bdb37e2ddf91ae345be83f920c266edb, type: 3}
+  efect: {fileID: 1069793763513450130, guid: e83dbdece552dfb4d99f7d0ed2363ed0, type: 3}
   maxHealth: 444
   lifeTime: 0
   shakeDuration: 0.2
@@ -3468,7 +3452,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   damage: 0
-  efect: {fileID: 6149846003684424815, guid: bdb37e2ddf91ae345be83f920c266edb, type: 3}
+  efect: {fileID: 1069793763513450130, guid: e83dbdece552dfb4d99f7d0ed2363ed0, type: 3}
   maxHealth: 444
   lifeTime: 0
   shakeDuration: 0.2
@@ -3599,7 +3583,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   damage: 0
-  efect: {fileID: 6149846003684424815, guid: bdb37e2ddf91ae345be83f920c266edb, type: 3}
+  efect: {fileID: 1069793763513450130, guid: e83dbdece552dfb4d99f7d0ed2363ed0, type: 3}
   maxHealth: 444
   lifeTime: 0
   shakeDuration: 0.2
@@ -3744,7 +3728,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   damage: 0
-  efect: {fileID: 6149846003684424815, guid: bdb37e2ddf91ae345be83f920c266edb, type: 3}
+  efect: {fileID: 1069793763513450130, guid: e83dbdece552dfb4d99f7d0ed2363ed0, type: 3}
   maxHealth: 444
   lifeTime: 0
   shakeDuration: 0.2
@@ -3874,7 +3858,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   damage: 0
-  efect: {fileID: 6149846003684424815, guid: bdb37e2ddf91ae345be83f920c266edb, type: 3}
+  efect: {fileID: 1069793763513450130, guid: e83dbdece552dfb4d99f7d0ed2363ed0, type: 3}
   maxHealth: 444
   lifeTime: 0
   shakeDuration: 0.2
@@ -4004,7 +3988,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   damage: 0
-  efect: {fileID: 6149846003684424815, guid: bdb37e2ddf91ae345be83f920c266edb, type: 3}
+  efect: {fileID: 1069793763513450130, guid: e83dbdece552dfb4d99f7d0ed2363ed0, type: 3}
   maxHealth: 444
   lifeTime: 0
   shakeDuration: 0.2

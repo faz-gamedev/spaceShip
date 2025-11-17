@@ -28,11 +28,11 @@ public class SelctAirShip : MonoBehaviour
 
     private void Awake()
     {
-      
+
         data = SecureSaveManager.LoadGame();
 
         CheckUnlock();
-       
+
     }
 
 
@@ -53,24 +53,28 @@ public class SelctAirShip : MonoBehaviour
 
     public void CheckUnlock()
     {
-        if (data.airShipUnlock[shipNumber]==true)
+        data = SecureSaveManager.LoadGame();
+
+     
+        if (data.airShipUnlock[shipNumber] == true)
         {
             selectButton.SetActive(true);
             unlockButton.SetActive(false);
             boyButton.SetActive(false);
 
-            if (data.airshipActive==shipNumber)
+            if (data.airshipActive == shipNumber)
             {
                 selectDisabel.interactable = false;
             }
             else
             {
+               
                 selectDisabel.interactable = true;
             }
         }
         else
         {
-            if (forSell==true)
+            if (forSell == true)
             {
                 boyButton.SetActive(true);
                 selectButton.SetActive(false);
@@ -89,7 +93,7 @@ public class SelctAirShip : MonoBehaviour
     public void Unlock()
     {
         data = SecureSaveManager.LoadGame();
-        if (data.coin>=unlockCust)
+        if (data.coin >= unlockCust)
         {
             data.coin -= unlockCust;
             data.airShipUnlock[shipNumber] = true;

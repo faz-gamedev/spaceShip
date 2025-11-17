@@ -1,14 +1,17 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
     [Header("Audio")]
-    [SerializeField] private AudioSource audioSource; 
+    [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip soundClip;
+
     [Header("Effect")]
     [SerializeField] private GameObject Shield;
+    [SerializeField] private GameObject explodEff;
     [Header("falde Settings")]
 
     [SerializeField] private GameObject faledPanel;
@@ -21,10 +24,10 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private Slider healthSlider;
 
     [Header("Optional Events")]
-    public UnityEvent onTakeDamage;
     public UnityEvent onHeal;
     public UnityEvent onDeath;
 
+    public static event Action onTakeDamage;
     private void Start()
     {
         currentHealth = maxHealth;
@@ -49,13 +52,15 @@ public class PlayerHealth : MonoBehaviour
         UpdateHealthUI();
         healthSlider.value = currentHealth;
         Debug.Log("Player took damage: " + damageAmount + " | Current Health: " + currentHealth);
-        
+
+
+
         if (currentHealth <= 0)
         {
             Die();
         }
     }
-  
+
     public void Heal(int healAmount)
     {
         currentHealth += healAmount;
@@ -69,11 +74,15 @@ public class PlayerHealth : MonoBehaviour
 
     private void Die()
     {
-        faledPanel.SetActive(true);
-        disabelCanves.SetActive(false);
-         onDeath?.Invoke();
+        if (CheckpointManager.levelCompletion == false)
+        {
+            faledPanel.SetActive(true);
+            disabelCanves.SetActive(false);
+        }
+
+        onDeath?.Invoke();
         gameObject.SetActive(false);
-      
+        Instantiate(explodEff, transform.position, transform.rotation);
     }
 
     private void UpdateHealthUI()
@@ -90,20 +99,30 @@ public class PlayerHealth : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         // بازگشت به پول پس از برخورد
-     
+
         if (other.CompareTag("Enemy"))
         {
             TakeDamage(100);
 
         }
-        else
+        else if (other.CompareTag("killEnemy"))
         {
-        //    TakeDamage(10);
+            TakeDamage(20000);
         }
-       
+        else if (other.CompareTag("Rocket"))
+        {
+            TakeDamage(200);
+        }
+
     }
 
-
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.collider.CompareTag("killEnemy"))
+        {
+            TakeDamage(20000);
+        }
+    }
 
     public void PlaySound()
     {
@@ -114,6 +133,7 @@ public class PlayerHealth : MonoBehaviour
         }
 
         audioSource.PlayOneShot(soundClip);
+        FindAnyObjectByType<AudioManager>().Play("MiniAlarm");
     }
 
     private System.Collections.IEnumerator ActivateAndDeactivate(GameObject obj, float duration)
