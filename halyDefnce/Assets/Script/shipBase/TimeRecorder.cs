@@ -9,15 +9,27 @@ public class TimeRecorder : MonoBehaviour
 
     [SerializeField] private RTLTextMeshPro countdownText; // „ ‰ ‘„«—‘ „⁄òÊ”
     [SerializeField] private RTLTextMeshPro recordText;    // „ ‰ —òÊ—œ
-    [SerializeField] private RTLTextMeshPro recordTextComplitLevel;   
-    
-    [SerializeField] private GameObject activeCanves;   
+    [SerializeField] private RTLTextMeshPro recordTextComplitLevel;
+
+    [SerializeField] private GameObject activeCanves;
 
     private float recordTime = 0f;
     private bool isRecording = false;
 
+
+    [Header("------stars timer ------- ")]
+
+    private float start2Rcord;
+    private float start3Rcord;
+
+    [SerializeField] private GameObject star2;
+    [SerializeField] private GameObject star3;
+    AudioManager audioManager;
     private void Start()
     {
+        audioManager = FindFirstObjectByType<AudioManager>();
+        start2Rcord = FindAnyObjectByType<CheckpointManager>().rcord2Srar;
+        start3Rcord = FindAnyObjectByType<CheckpointManager>().rcord3Srar;
 
 
         data = SecureSaveManager.LoadGame();
@@ -25,7 +37,7 @@ public class TimeRecorder : MonoBehaviour
 
 
 
-   
+
     }
 
     private IEnumerator StartCountdown()
@@ -51,6 +63,18 @@ public class TimeRecorder : MonoBehaviour
         {
             recordTime += Time.deltaTime;
             recordText.text = recordTime.ToString("F2");
+            if (star3.activeSelf && recordTime > start3Rcord)
+            {
+                star3.SetActive(false);
+                audioManager.Play("error");
+            }
+            else if (star2.activeSelf && recordTime > start2Rcord)
+            {
+                star2.SetActive(false);
+
+                audioManager.Play("error");
+            }
+
         }
     }
 
@@ -69,7 +93,7 @@ public class TimeRecorder : MonoBehaviour
         recordTextComplitLevel.text = recordTime.ToString("F2");
     }
 
-    public  float TimeRcord()
+    public float TimeRcord()
     {
         return recordTime;
     }
@@ -77,6 +101,9 @@ public class TimeRecorder : MonoBehaviour
 
     public void SaveRicord()
     {
+        Debug.Log("Level index = " + PlayerPrefs.GetInt("levelToPlay"));
+        Debug.Log("Old record = " + data.rcord[PlayerPrefs.GetInt("levelToPlay")]);
+        Debug.Log("New record = " + recordTime);
         if (recordTime <= data.rcord[PlayerPrefs.GetInt("levelToPlay")] || data.rcord[PlayerPrefs.GetInt("levelToPlay")] == 0)
         {
             data.rcord[PlayerPrefs.GetInt("levelToPlay")] = recordTime;

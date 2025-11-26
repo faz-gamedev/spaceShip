@@ -4,6 +4,7 @@ using static UnityEngine.GraphicsBuffer;
 
 public class Teleport : MonoBehaviour
 {
+    [SerializeField] private float timeToTeleport;
     [SerializeField] private Transform sponPoint;
     [SerializeField] private Transform stopPoint;
     [SerializeField] private GameObject target;
@@ -24,7 +25,7 @@ public class Teleport : MonoBehaviour
         if (sponPoint != null)
         {
             target = other.gameObject;
-            StartCoroutine(ExecuteAfterDelay(7));
+            StartCoroutine(ExecuteAfterDelay(timeToTeleport));
 
         }
     }

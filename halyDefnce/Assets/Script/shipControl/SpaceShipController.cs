@@ -8,18 +8,18 @@ public class SpaceShipController : MonoBehaviour
 
 
 
-    [Range(1000f, 10000f)]
+    [Range(100f, 1000f)]
     [SerializeField]
-    private float _thrustForce = 7500f;
-    [Range(500f, 10000f)]
+    private float _thrustForce = 750f;
+    [Range(1f, 1000f)]
     [SerializeField]
-    private float _pitchForce = 6000f;
-    [Range(100f, 10000f)]
+    private float _pitchForce = 60f;
+    [Range(1f, 1000f)]
     [SerializeField]
-    private float _rollForce = 2000f;
-    [Range(500f, 10000f)]
+    private float _rollForce = 20f;
+    [Range(1f, 1000f)]
     [SerializeField]
-    private float _yawForce = 1000;
+    private float _yawForce = 100;
 
 
 
@@ -54,9 +54,16 @@ public class SpaceShipController : MonoBehaviour
 
     [SerializeField] private float maxRotationAngle = 45f;
     [SerializeField] private Transform cabinAhrom;
+
+    [Header("------ui anima-------")]
+    [SerializeField] private RectTransform rect;
+    [SerializeField] private RectTransform rect2;
     private void Awake()
     {
+
+
         rigidbody = GetComponent<Rigidbody>();
+        rigidbody.maxAngularVelocity = 4f;
     }
 
 
@@ -64,30 +71,29 @@ public class SpaceShipController : MonoBehaviour
     {
 
     }
-
-    private void FixedUpdate()
+    private void Update()
     {
-
         AhromAni();
-        if (joystick.Vertical <= 0.1)
+        if (joystick.Vertical <= 0.2)
         {
             _pitchAmount = joystick.Vertical;
-
+            UiAnimation();
         }
-        else
+        else if (joystick.Vertical >= 0.2)
         {
             _pitchAmount = joystick.Vertical;
+            UiAnimation();
         }
 
-        if (joystick.Horizontal <= 0.1)
+        if (joystick.Horizontal <= 0.2)
         {
             _yawAmount = joystick.Horizontal;
-
+            UiAnimation();
         }
-        else
+        else if (joystick.Horizontal >= 0.2)
         {
             _yawAmount = joystick.Horizontal;
-
+            UiAnimation();
         }
 
 
@@ -102,6 +108,10 @@ public class SpaceShipController : MonoBehaviour
             _rollAmount = -joystickRoll.Horizontal;
         }
 
+    }
+    private void FixedUpdate()
+    {
+
 
 
 
@@ -109,20 +119,40 @@ public class SpaceShipController : MonoBehaviour
 
         if (!Mathf.Approximately(a: 0f, b: _pitchAmount))
         {
-            rigidbody.AddTorque(transform.right * (_pitchForce * _pitchAmount * Time.fixedDeltaTime));
+            rigidbody.AddTorque(transform.right * (_pitchForce * _pitchAmount));
         }
         if (!Mathf.Approximately(a: 0f, b: _rollAmount))
         {
-            rigidbody.AddTorque(transform.forward * (_rollForce * _rollAmount * Time.fixedDeltaTime));
+            rigidbody.AddTorque(transform.forward * (_rollForce * _rollAmount));
         }
         if (!Mathf.Approximately(a: 0f, b: _yawAmount))
         {
-            rigidbody.AddTorque(transform.up * (_yawAmount * _yawForce * Time.fixedDeltaTime));
+            rigidbody.AddTorque(transform.up * (_yawAmount * _yawForce));
         }
         if (!Mathf.Approximately(a: 0f, b: _thrustAmount))
         {
-            rigidbody.AddForce(transform.forward * (_thrustForce * _thrustAmount * Time.fixedDeltaTime));
+            rigidbody.AddForce(transform.forward * (_thrustForce * _thrustAmount));
         }
+
+    }
+
+
+    public void UiAnimation()
+    {
+
+
+
+
+
+        float t = (joystick.Vertical + 1f) / 2f;
+        float f = (joystick.Horizontal + 1f) / 2f;
+
+
+        float finalValue = Mathf.Lerp(-300, 300, t);
+        float finalValue2 = Mathf.Lerp(-300, 300, f);
+        rect.anchoredPosition = new Vector2(rect.anchoredPosition.x, finalValue);
+        rect2.anchoredPosition = new Vector2(rect2.anchoredPosition.x, finalValue2);
+
     }
 
     bool ChekEngineUp;
@@ -136,9 +166,9 @@ public class SpaceShipController : MonoBehaviour
         }
         if (slider.value == 0)
         {
-           
-           
-             ChekEngineUp = false;
+
+
+            ChekEngineUp = false;
         }
         else
         {
@@ -169,10 +199,7 @@ public class SpaceShipController : MonoBehaviour
 
         cabinAhrom.localRotation = Quaternion.Euler(targetAngleX, 0f, -targetAngleZ);
     }
-    public void JiroscopActive()
-    {
-        JiroscopOn = !JiroscopOn;
-    }
+
 
 
     public void DeActiveAll()

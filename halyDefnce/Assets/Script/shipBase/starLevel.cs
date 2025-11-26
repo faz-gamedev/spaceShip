@@ -32,8 +32,9 @@ public class starLevel : MonoBehaviour
 
     private void Start()
     {
-        SetLevelInfo(PlayerPrefs.GetInt("sysen1LevelRichd"));
+       
         data = SecureSaveManager.LoadGame();
+        SetLevelInfo(PlayerPrefs.GetInt("sysen1LevelRichd"));
         LookLevls();
     }
 

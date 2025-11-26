@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7116012223471841156}
   - component: {fileID: 6582971079558092641}
   - component: {fileID: 8118663066176525525}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: astroid
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -99,7 +99,7 @@ GameObject:
   - component: {fileID: 2794593436276627358}
   - component: {fileID: 4861600316194902625}
   - component: {fileID: 3137776774006122833}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Asteroid_Holes_02
   m_TagString: Enemy
   m_Icon: {fileID: 0}

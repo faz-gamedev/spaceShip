@@ -4,7 +4,7 @@ using UnityEngine;
 public class ActiveTriger : MonoBehaviour
 {
     [SerializeField] private GameObject[] activeObject;
-
+    private bool chekFerstTime = false;
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -13,8 +13,12 @@ public class ActiveTriger : MonoBehaviour
             {
                 if (item != null)
                 {
+                    if (chekFerstTime == false)
+                    {
 
-                    item.SetActive(true);
+                        item.SetActive(true);
+                        chekFerstTime = true;
+                    }
                 }
             }
         }
