@@ -20346,10 +20346,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c27076ee102ddf41ade7522fce2406e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  _thrustForce: 10000
-  _pitchForce: 857
-  _rollForce: 1458
-  _yawForce: 634
+  _thrustForce: 368
+  _pitchForce: 24
+  _rollForce: 32
+  _yawForce: 24
   _thrustAmount: 0
   _pitchAmount: 0
   _rollAmount: 0
@@ -20368,6 +20368,9 @@ MonoBehaviour:
   startBoosterAudio: {fileID: 8300000, guid: 1727a9c9c15cda240a1dde0b03741e56, type: 3}
   maxRotationAngle: 45
   cabinAhrom: {fileID: 2335679947776436219}
+  rect: {fileID: 0}
+  rect2: {fileID: 0}
+  setthrust: 0
 --- !u!54 &5420437194916934008
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -20407,17 +20410,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb0503d2416d6e1488c4a0eb44dfd893, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WapenControl
-  moveSpeed: 406.4
-  minBounds: {x: -300, y: 200}
-  maxBounds: {x: 300, y: 400}
-  returnSpeed: 3.84
-  initialPosition: {x: 90, y: 327.5}
+  minLocalPosition: {x: -400, y: -200}
+  maxLocalPosition: {x: 400, y: 300}
+  rayDistance: 1000
+  rect: {fileID: 0}
+  collisionLayers:
+    serializedVersion: 2
+    m_Bits: 128
+  joystick: {fileID: 0}
   rayLength: 1000
   uiSpriteTransform: {fileID: 0}
   uiCamera: {fileID: 0}
   worldCamera: {fileID: 0}
   wapen: {fileID: 1357968522810361336}
-  joystick: {fileID: 0}
   bulletPrefab: {fileID: 8858460585833356395, guid: 5beb31addf944334ebe91a1ec1a01d85, type: 3}
   sundWapen: 
   firePoint:
@@ -20470,7 +20475,7 @@ MonoBehaviour:
   explodEff: {fileID: 2164452368784928260, guid: 3dba9d46b84aa0b4e8cb2c6824e51c0f, type: 3}
   faledPanel: {fileID: 0}
   disabelCanves: {fileID: 0}
-  maxHealth: 945
+  maxHealth: 400
   healthSlider: {fileID: 0}
   onHeal:
     m_PersistentCalls:
@@ -20497,6 +20502,7 @@ MonoBehaviour:
   camPositionAlternative: {fileID: 5002992285431832116}
   positionSmoothTime: 9
   switchCam: 0
+  cam: {fileID: 0}
 --- !u!114 &7573748604130233414
 MonoBehaviour:
   m_ObjectHideFlags: 0

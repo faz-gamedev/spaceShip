@@ -6,6 +6,8 @@ public class starLevel : MonoBehaviour
 {
 
 
+    [SerializeField] private string sysenreched;
+    [SerializeField] private string levelToPlay;
     [SerializeField] private int[] lvelRivard;
 
     [SerializeField] private Image[] levelSelctBakgrund;
@@ -21,6 +23,7 @@ public class starLevel : MonoBehaviour
 
     [Header("stars")]
 
+    [SerializeField] private int season;
     [SerializeField] private GameObject starImage1;
     [SerializeField] private GameObject starImage2;
     [SerializeField] private GameObject starImage3;
@@ -34,7 +37,7 @@ public class starLevel : MonoBehaviour
     {
        
         data = SecureSaveManager.LoadGame();
-        SetLevelInfo(PlayerPrefs.GetInt("sysen1LevelRichd"));
+        SetLevelInfo(PlayerPrefs.GetInt(sysenreched));
         LookLevls();
     }
 
@@ -43,7 +46,7 @@ public class starLevel : MonoBehaviour
         levelToPlayIndx = leveIndex;
         ResetColor();
         levelSelctBakgrund[leveIndex].color = Color.green;
-        PlayerPrefs.SetInt("levelToPlay", leveIndex);
+        PlayerPrefs.SetInt(levelToPlay, leveIndex);
         SetLevelInfo(leveIndex);
     }
 
@@ -52,7 +55,18 @@ public class starLevel : MonoBehaviour
 
     public void SetLevelInfo(int index)
     {
-        rcord.text = data.rcord[index].ToString("F2");
+        switch (season)
+        {
+            case 0:
+                rcord.text = data.rcord[index].ToString("F2");
+                break;
+            case 1:
+                rcord.text = data.rcord2[index].ToString("F2");
+                break;
+
+
+        }
+      
         int a = index + 1;
         levelToPLay.text = a.ToString();
         coinResive.text = lvelRivard[index].ToString();
@@ -65,8 +79,8 @@ public class starLevel : MonoBehaviour
             lucImage[i].SetActive(true);
             levelButton[i].interactable = false;
         }
-
-        for (int i = 0; i <= PlayerPrefs.GetInt("sysen1LevelRichd"); i++)
+        Debug.Log(PlayerPrefs.GetInt(sysenreched)+" level rechedAAA");
+        for (int i = 0; i <= PlayerPrefs.GetInt(sysenreched); i++)
         {
             lucImage[i].SetActive(false);
             levelButton[i].interactable = true;
@@ -89,20 +103,46 @@ public class starLevel : MonoBehaviour
         starImage1.SetActive(false);
         starImage2.SetActive(false);
         starImage3.SetActive(false);
-        if (data.star[level] == 3)
+        switch (season)
         {
-            starImage1.SetActive(true);
-            starImage2.SetActive(true);
-            starImage3.SetActive(true);
+            case 0:
+                if (data.star[level] == 3)
+                {
+                    starImage1.SetActive(true);
+                    starImage2.SetActive(true);
+                    starImage3.SetActive(true);
+                }
+                else if (data.star[level] == 3)
+                {
+                    starImage1.SetActive(true);
+                    starImage2.SetActive(true);
+                }
+                else if (data.star[level] == 1)
+                {
+                    starImage1.SetActive(true);
+                }
+                break;
+            case 1:
+                if (data.star2[level] == 3)
+                {
+                    starImage1.SetActive(true);
+                    starImage2.SetActive(true);
+                    starImage3.SetActive(true);
+                }
+                else if (data.star2[level] == 3)
+                {
+                    starImage1.SetActive(true);
+                    starImage2.SetActive(true);
+                }
+                else if (data.star2[level] == 1)
+                {
+                    starImage1.SetActive(true);
+                }
+                break;
+
+
         }
-        else if (data.star[level] == 3)
-        {
-            starImage1.SetActive(true);
-            starImage2.SetActive(true);
-        }
-        else if (data.star[level] == 1)
-        {
-            starImage1.SetActive(true);
-        }
+
+   
     }
 }

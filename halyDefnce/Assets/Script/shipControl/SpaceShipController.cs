@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
 
@@ -58,6 +59,11 @@ public class SpaceShipController : MonoBehaviour
     [Header("------ui anima-------")]
     [SerializeField] private RectTransform rect;
     [SerializeField] private RectTransform rect2;
+
+
+
+
+    private bool deActiveBooster = true;
     private void Awake()
     {
 
@@ -66,10 +72,11 @@ public class SpaceShipController : MonoBehaviour
         rigidbody.maxAngularVelocity = 4f;
     }
 
-
+  [SerializeField]  private float setthrust;
     void Start()
     {
-
+        setthrust = _thrustForce;
+        
     }
     private void Update()
     {
@@ -136,7 +143,21 @@ public class SpaceShipController : MonoBehaviour
 
     }
 
+    public void BoostSpeed(float _delay,float thrust)
+    {
+        StartCoroutine(ExecuteAfterTime(_delay, thrust));
+    }
+    IEnumerator ExecuteAfterTime(float delay,float _thrust)
+    {
+        deActiveBooster = false;
+        _thrustForce = _thrust;
+        _thrustAmount = 1;
+      
+        yield return new WaitForSeconds(delay);
 
+        deActiveBooster = true;
+        _thrustForce = setthrust;
+    }
     public void UiAnimation()
     {
 
@@ -156,9 +177,14 @@ public class SpaceShipController : MonoBehaviour
     }
 
     bool ChekEngineUp;
+
+  
     public void SetFors()
     {
-
+        if (deActiveBooster==false)
+        {
+            return;
+        }
 
         if (ChekEngineUp == false && slider.value >= 0)
         {

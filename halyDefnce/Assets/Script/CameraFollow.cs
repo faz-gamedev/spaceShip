@@ -10,7 +10,8 @@ public class CameraFollow : MonoBehaviour
     [SerializeField] private float positionSmoothTime = 9; 
     [SerializeField] private bool switchCam = false;
 
-    private Transform cam;  
+    [SerializeField] private Transform cam;
+ 
 
 
     private void Awake()

@@ -28,6 +28,10 @@ public class SaveSystem : MonoBehaviour
         NewGame();
         SecureSaveManager.DeleteSave();
         PlayerPrefs.SetInt("isNewGame", 0);
+        PlayerPrefs.SetInt("s1", 0);
+        PlayerPrefs.SetInt("s2", 0);
+        PlayerPrefs.SetInt("levelToPlay1", 0);
+        PlayerPrefs.SetInt("levelToPlay2", 0);
 
     }
 

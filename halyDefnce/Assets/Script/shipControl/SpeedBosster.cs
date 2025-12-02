@@ -1,65 +1,51 @@
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
 
-public class Teleport : MonoBehaviour
+public class SpeedBosster : MonoBehaviour
 {
-    [SerializeField] private float timeToTeleport;
-    [SerializeField] private Transform sponPoint;
-    [SerializeField] private Transform stopPoint;
-    [SerializeField] private GameObject target;
-    [SerializeField] private GameObject uiActive;
-    [SerializeField] private GameObject plasmaEfect;
-    [SerializeField] private GameObject plasmaEfect2;
 
     private AudioManager audioManager;
-    private SpaceShipController  shipController;
+    [SerializeField] private float boostTime;
+    [SerializeField] private float thurt;
+    [SerializeField] private Transform setPos;
+
     [Header("Boost FoV Settings")]
     [SerializeField] private bool uoseEffect = false;
     [SerializeField] private float targetFoV = 110f;
     [SerializeField] private float normalFoV = 60f;
     [SerializeField] private float duration = 3f;
-    [SerializeField] private float effTime = 3;
+    [SerializeField] private float effTime=3;
+
     private void Start()
     {
         audioManager = FindFirstObjectByType<AudioManager>();
-        shipController = FindFirstObjectByType<SpaceShipController>();
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (sponPoint != null)
+        if (other.CompareTag("Player"))
         {
-            target = other.gameObject;
-            StartCoroutine(ExecuteAfterDelay(timeToTeleport));
-            StartBoostEffect();
+            GameObject a = other.gameObject;
+          
+            a.transform.rotation = setPos.rotation;
+            audioManager.Play("jump");
+
+            FindFirstObjectByType<SpaceShipController>().BoostSpeed(boostTime, thurt);
+            if (uoseEffect == true)
+            {
+
+                StartBoostEffect();
+            }
         }
     }
+
+
 
     public void StartBoostEffect()
     {
 
-      
+        StopAllCoroutines();
         StartCoroutine(BoostEfectCoroutine());
     }
-    IEnumerator ExecuteAfterDelay(float delayTime)
-    {
-        plasmaEfect.SetActive(true);
-        shipController.DeActiveAll();
-        uiActive.SetActive(false);
-        audioManager.Play("teleport");
-        target.gameObject.transform.position = stopPoint.transform.position;
-        yield return new WaitForSeconds(delayTime);
-       
-        plasmaEfect.SetActive(false);
-        plasmaEfect2.SetActive(true);
-        audioManager.StopPlay("teleport");
-        audioManager.Play("MiniAlarm");
-        target.gameObject.transform.position = sponPoint.position;
-        uiActive.SetActive(true);
-
-    }
-
-
 
     IEnumerator BoostEfectCoroutine()
     {

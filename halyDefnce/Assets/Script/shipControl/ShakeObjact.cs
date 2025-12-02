@@ -32,6 +32,11 @@ public class ShakeObjact : MonoBehaviour
                 shakeRotation = Quaternion.Euler(0, 0, rotZ);
 
                 shakePower = Mathf.MoveTowards(shakePower, 0, shakeFadeTime * Time.deltaTime);
+
+
+                transform.localPosition += shakeOffset * Time.deltaTime;
+                transform.localRotation *= Quaternion.Slerp(Quaternion.identity, shakeRotation,
+                    Time.deltaTime * 10f);
             }
             else
             {
@@ -41,14 +46,10 @@ public class ShakeObjact : MonoBehaviour
             }
         }
 
-        // اعمال لرزش روی موقعیت فعلی (بدون تداخل با حرکت)
-        transform.localPosition += shakeOffset * Time.deltaTime;
-        transform.localRotation *= Quaternion.Slerp(Quaternion.identity, shakeRotation, Time.deltaTime * 10f);
+     
     }
 
-    /// <summary>
-    /// لرزش موقت هنگام حرکت
-    /// </summary>
+
     public void Shake(float duration, float magnitude)
     {
         shakeTimeRemaining = duration;

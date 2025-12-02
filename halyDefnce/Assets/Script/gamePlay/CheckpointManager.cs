@@ -1,10 +1,18 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Linq.Expressions;
+using System.Security.Cryptography;
+using UnityEngine;
 using UnityEngine.Profiling;
 using static UnityEngine.GraphicsBuffer;
 
 public class CheckpointManager : MonoBehaviour
 {
+    [SerializeField] private string seasonlevelRiched;
+    [SerializeField] private string levelToplay;
+
+
     [Header("------stars complet level------- ")]
+    [SerializeField] private int sesesnActive;
     [SerializeField] private int levelActive;
 
 
@@ -18,6 +26,8 @@ public class CheckpointManager : MonoBehaviour
 
 
     [Header("-------Rings------")]
+
+
     [SerializeField] private GameObject[] rings;
 
 
@@ -41,7 +51,7 @@ public class CheckpointManager : MonoBehaviour
     private void Start()
     {
 
-
+     
         player = GameObject.FindGameObjectWithTag("Player");
         data = SecureSaveManager.LoadGame();
         recorder = FindAnyObjectByType<TimeRecorder>();
@@ -66,6 +76,7 @@ public class CheckpointManager : MonoBehaviour
     }
     private void Update()
     {
+
         if (rings.Length > currentIndex)
         {
 
@@ -80,7 +91,7 @@ public class CheckpointManager : MonoBehaviour
 
     public void GaidArow()
     {
-        Vector3 dir = player.transform.InverseTransformPoint(rings[currentIndex].transform.transform.position);
+        Vector3 dir = player.transform.InverseTransformPoint(rings[currentIndex].transform.position);
         Vector3 dir2 = (rings[currentIndex].transform.position - player.transform.position).normalized;
         float dot = Vector3.Dot(player.transform.forward, dir2);
         e1 = dir.x;
@@ -157,10 +168,13 @@ public class CheckpointManager : MonoBehaviour
                 completLevel.SetActive(true);
                 canevsDeActive.SetActive(false);
                 recorder.StopRecording();
-                if (PlayerPrefs.GetInt("sysen1LevelRichd") == PlayerPrefs.GetInt("levelToPlay"))
+                    Debug.Log("level reched" + PlayerPrefs.GetInt(seasonlevelRiched) + "level Active ?" + PlayerPrefs.GetInt(levelToplay));
+                if (PlayerPrefs.GetInt(seasonlevelRiched) == PlayerPrefs.GetInt(levelToplay))
                 {
-                    PlayerPrefs.SetInt("sysen1LevelRichd", PlayerPrefs.GetInt("sysen1LevelRichd") + 1);
+                    PlayerPrefs.SetInt(seasonlevelRiched, PlayerPrefs.GetInt(seasonlevelRiched) + 1);
+
                     PlayerPrefs.Save();
+                    Debug.Log(PlayerPrefs.GetInt(seasonlevelRiched));
                 }
                 CHekStar();
             }
@@ -174,36 +188,48 @@ public class CheckpointManager : MonoBehaviour
 
         if (rcord <= rcord2Srar)
         {
-            if (data.star[levelActive] < 2)
-            {
-                data.star[levelActive] = 2;
-                SecureSaveManager.SaveGame(data);
-            }
+            SaveStar(2);
             star2.SetActive(true);
             star1.SetActive(true);
         }
         if (rcord <= rcord3Srar)
         {
-            if (data.star[levelActive] < 3)
-            {
-                data.star[levelActive] = 3;
-                SecureSaveManager.SaveGame(data);
-            }
+            SaveStar(3);
             star3.SetActive(true);
             star2.SetActive(true);
             star1.SetActive(true);
         }
         else
         {
-            if (data.star[levelActive] < 1)
-            {
-                data.star[levelActive] = 1;
-                SecureSaveManager.SaveGame(data);
-            }
+            SaveStar(1);
             star1.SetActive(true);
         }
 
 
 
+    }
+
+
+    public void SaveStar(int starNum)
+    {
+        switch (sesesnActive)
+        {
+            case 0:
+                if (data.star[levelActive] < starNum)
+                {
+                    data.star[levelActive] = starNum;
+                    SecureSaveManager.SaveGame(data);
+                }
+                break;
+            case 1:
+                if (data.star2[levelActive] < starNum)
+                {
+                    data.star2[levelActive] = starNum;
+                    SecureSaveManager.SaveGame(data);
+                }
+                break;
+
+
+        }
     }
 }

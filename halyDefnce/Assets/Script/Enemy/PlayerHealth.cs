@@ -38,7 +38,7 @@ public class PlayerHealth : MonoBehaviour
             healthSlider.value = currentHealth;
         }
     }
-
+    
     public void TakeDamage(int damageAmount)
     {
         if (currentHealth <= 0) return;
@@ -98,7 +98,7 @@ public class PlayerHealth : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        // بازگشت به پول پس از برخورد
+        
 
         if (other.CompareTag("Enemy"))
         {
