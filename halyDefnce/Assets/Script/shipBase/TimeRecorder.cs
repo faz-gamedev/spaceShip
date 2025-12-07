@@ -7,7 +7,9 @@ public class TimeRecorder : MonoBehaviour
 {
     private SaveData data = new SaveData();
 
+    [SerializeField] private int seasonIndex; // „ ‰ ‘„«—‘ „⁄òÊ”
     [SerializeField] private RTLTextMeshPro countdownText; // „ ‰ ‘„«—‘ „⁄òÊ”
+    [SerializeField] private GameObject backgrandtex; // „ ‰ ‘„«—‘ „⁄òÊ”
     [SerializeField] private RTLTextMeshPro recordText;    // „ ‰ —òÊ—œ
     [SerializeField] private RTLTextMeshPro recordTextComplitLevel;
 
@@ -53,7 +55,7 @@ public class TimeRecorder : MonoBehaviour
         countdownText.text = " Õ—ò  ";
         yield return new WaitForSeconds(1f);
         countdownText.text = "";
-
+        backgrandtex.SetActive(false);
         StartRecording();
     }
 
@@ -103,12 +105,27 @@ public class TimeRecorder : MonoBehaviour
     {
         Debug.Log("Level index = " + PlayerPrefs.GetInt("levelToPlay"));
         Debug.Log("Old record = " + data.rcord[PlayerPrefs.GetInt("levelToPlay")]);
+       
         Debug.Log("New record = " + recordTime);
-        if (recordTime <= data.rcord[PlayerPrefs.GetInt("levelToPlay")] || data.rcord[PlayerPrefs.GetInt("levelToPlay")] == 0)
+
+
+        if (seasonIndex==0)
         {
-            data.rcord[PlayerPrefs.GetInt("levelToPlay")] = recordTime;
-            SecureSaveManager.SaveGame(data);
+            if (recordTime <= data.rcord[PlayerPrefs.GetInt("levelToPlay1")] || data.rcord[PlayerPrefs.GetInt("levelToPlay1")] == 0)
+            {
+                data.rcord[PlayerPrefs.GetInt("levelToPlay1")] = recordTime;
+                SecureSaveManager.SaveGame(data);
+            }
         }
+        else if (seasonIndex == 1)
+        {
+            if (recordTime <= data.rcord2[PlayerPrefs.GetInt("levelToPlay2")] || data.rcord2[PlayerPrefs.GetInt("levelToPlay2")] == 0)
+            {
+                data.rcord2[PlayerPrefs.GetInt("levelToPlay2")] = recordTime;
+                SecureSaveManager.SaveGame(data);
+            }
+        }
+      
     }
 }
 

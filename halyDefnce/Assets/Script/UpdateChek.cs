@@ -30,7 +30,7 @@ public class UpdateChek : MonoBehaviour
         if (IsConnectedToInternet() == true && lodingEfectDayly == false)
         {
 
-            Invoke("ChekeUpdat", 5);
+            Invoke("ChekeUpdat", 3);
         }
         else
         {

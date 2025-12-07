@@ -1,3 +1,4 @@
+using RTLTMPro;
 using System;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -31,6 +32,9 @@ public class AudioManager : MonoBehaviour
 
     public Sands[] sounds;
 
+    [SerializeField] private string[] backGrandSund;
+    [SerializeField] private string[] musicName;
+    [SerializeField] private RTLTextMeshPro musicText;
     private void Awake()
     {
         foreach (Sands s in sounds)
@@ -47,7 +51,40 @@ public class AudioManager : MonoBehaviour
     }
     private void Start()
     {
-        Play("Bakgrundsund");
+
+        ChengMuseic(PlayerPrefs.GetInt("BackgrundMusic", 0));
+    }
+
+    public void ChengMuseic(int index)
+    {
+        if (musicText != null)
+        {
+
+            musicText.text = musicName[index];
+        }
+        Play(backGrandSund[index]);
+    }
+    public void ChengMuseikNext()
+    {
+        StopPlay(backGrandSund[PlayerPrefs.GetInt("BackgrundMusic")]);
+        PlayerPrefs.SetInt("BackgrundMusic", PlayerPrefs.GetInt("BackgrundMusic", 0) + 1);
+        if (PlayerPrefs.GetInt("BackgrundMusic") > backGrandSund.Length - 1)
+        {
+            PlayerPrefs.SetInt("BackgrundMusic", 0);
+        }
+        ChengMuseic(PlayerPrefs.GetInt("BackgrundMusic", 0));
+        Debug.Log("play music  :" + PlayerPrefs.GetInt("BackgrundMusic", 0));
+    }
+    public void ChengMuseikBack()
+    {
+        StopPlay(backGrandSund[PlayerPrefs.GetInt("BackgrundMusic")]);
+        PlayerPrefs.SetInt("BackgrundMusic", PlayerPrefs.GetInt("BackgrundMusic", 0) - 1);
+        if (PlayerPrefs.GetInt("BackgrundMusic") < 0)
+        {
+            PlayerPrefs.SetInt("BackgrundMusic", backGrandSund.Length - 1);
+        }
+        ChengMuseic(PlayerPrefs.GetInt("BackgrundMusic", 0));
+        Debug.Log("play music  :" + PlayerPrefs.GetInt("BackgrundMusic", 0));
     }
     public void Play(string name)
     {

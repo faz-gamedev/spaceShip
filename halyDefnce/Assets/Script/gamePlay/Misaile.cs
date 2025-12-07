@@ -30,7 +30,7 @@ public class Misaile : MonoBehaviour
 
     void MethodToCall()
     {
-        rotationSmoothSpeed = 9;
+        rotationSmoothSpeed = 15;
         positionSmoothSpeed = 400;
     }
    

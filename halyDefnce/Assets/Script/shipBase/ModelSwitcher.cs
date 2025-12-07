@@ -56,7 +56,7 @@ public class ModelSwitcher : MonoBehaviour
 
         models[data.airshipActive].SetActive(true);
 
-        highlight[data.airshipActive].color = Color.green;
+        highlight[data.airshipActive].color = Color.white;
 
     }
 

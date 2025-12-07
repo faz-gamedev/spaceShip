@@ -44,7 +44,24 @@ public class EmailManager : MonoBehaviour
     {
         string email = "fazel.zivarpor.gamedev@gmail.com";
         string subject = Uri.EscapeDataString("گزارش مشکل در بازی");
-        string body = Uri.EscapeDataString("سلام، من یک مشکل در بازی پیدا کردم...");
+        string body = Uri.EscapeDataString(
+  "سلام، من یک مشکل در بازی پیدا کردم.\n\n" +
+  "لطفاً اطلاعات زیر را پر کنید تا بتوانیم مشکل را بهتر بررسی کنیم:\n\n" +
+  "1. عنوان مشکل:\n" +
+  "   (مشکل دقیقاً چی هست؟)\n\n" +
+  "2. توضیحات کامل:\n" +
+  "   (چه اتفاقی می‌افتد؟ چه انتظاری داشتید؟)\n\n" +
+  "3. مرحله/محیطی که مشکل رخ داد:\n" +
+  "   (مرحله چند؟ یا در کدام بخش بازی؟)\n\n" +
+  "4. مدل گوشی و نسخه اندروید:\n" +
+  "   (مثلاً Samsung A32 - Android 13)\n\n" +
+  "5. نسخه بازی:\n" +
+  "   (در منوی بازی نوشته شده)\n\n" +
+  "6. آیا مشکل قابل تکرار است؟\n" +
+  "   (مثلاً هر بار وارد مرحله می‌شوید اتفاق می‌افتد؟)\n\n" +
+  "-------------------------\n" +
+  "با تشکر از شما ❤️"
+  );
 
         string mailto = $"mailto:{email}?subject={subject}&body={body}";
         Application.OpenURL(mailto);

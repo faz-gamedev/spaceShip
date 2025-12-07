@@ -169,8 +169,8 @@ public class SpaceShipController : MonoBehaviour
         float f = (joystick.Horizontal + 1f) / 2f;
 
 
-        float finalValue = Mathf.Lerp(-300, 300, t);
-        float finalValue2 = Mathf.Lerp(-300, 300, f);
+        float finalValue = Mathf.Lerp(-183, 183, t);
+        float finalValue2 = Mathf.Lerp(-183, 183, f);
         rect.anchoredPosition = new Vector2(rect.anchoredPosition.x, finalValue);
         rect2.anchoredPosition = new Vector2(rect2.anchoredPosition.x, finalValue2);
 

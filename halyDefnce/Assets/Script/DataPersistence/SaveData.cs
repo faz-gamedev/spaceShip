@@ -10,8 +10,10 @@ public class SaveData
 
 
     public int airshipActive=0;
+    public bool seasonLock=false;
 
     //airShip Unlock
+
     public bool[] airShipUnlock = {true,false,false,false,false,false};
     public float[] rcord = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
     public float[] rcord2 = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};

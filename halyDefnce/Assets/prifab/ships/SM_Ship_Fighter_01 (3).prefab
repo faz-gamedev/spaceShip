@@ -369,7 +369,7 @@ Transform:
   m_GameObject: {fileID: 1019334206471445540}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.11, y: -0.37, z: 7.02}
+  m_LocalPosition: {x: 0.01, y: -0.74, z: 7.02}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -399,13 +399,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1441777783459607198}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.09923944, y: 0.019348085, z: -0.001954083, w: -0.9948736}
-  m_LocalPosition: {x: -0.01, y: 5.06, z: -14.54}
+  m_LocalRotation: {x: 0.09925893, y: 0, z: 0, w: 0.99506164}
+  m_LocalPosition: {x: 0, y: 6, z: -14.24}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5917518873267800939}
-  m_LocalEulerAnglesHint: {x: 11.393, y: -2.228, z: 0.003}
+  m_LocalEulerAnglesHint: {x: 11.393, y: 0, z: 0}
 --- !u!1 &1670294560638758117
 GameObject:
   m_ObjectHideFlags: 0
@@ -10294,7 +10294,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2589934946607024074
 Transform:
   m_ObjectHideFlags: 0
@@ -15219,9 +15219,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c27076ee102ddf41ade7522fce2406e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  _thrustForce: 200
+  _thrustForce: 150
   _pitchForce: 15
-  _rollForce: 10
+  _rollForce: 15
   _yawForce: 10
   _thrustAmount: 0
   _pitchAmount: 0
@@ -15281,7 +15281,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb0503d2416d6e1488c4a0eb44dfd893, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WapenControl
-  minLocalPosition: {x: -400, y: -200}
+  minLocalPosition: {x: -400, y: -11}
   maxLocalPosition: {x: 400, y: 300}
   rayDistance: 1000
   rect: {fileID: 0}
@@ -15298,14 +15298,13 @@ MonoBehaviour:
   sundWapen: 
   firePoint:
   - {fileID: 617108344556518479}
-  bulletSpeed: 191.3
   fireRate: 0.5
   fireActive: 0
-  maxAmmo: 168
+  maxAmmo: 15
   ammoCunt: {fileID: 0}
-  cooldown: 5
-  minValuePool: 20
-  maxValuePool: 100
+  cooldown: 7
+  minValuePool: 5
+  maxValuePool: 15
 --- !u!65 &1155095234467628828
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15345,7 +15344,7 @@ MonoBehaviour:
   explodEff: {fileID: 2164452368784928260, guid: 3dba9d46b84aa0b4e8cb2c6824e51c0f, type: 3}
   faledPanel: {fileID: 0}
   disabelCanves: {fileID: 0}
-  maxHealth: 260
+  maxHealth: 200
   healthSlider: {fileID: 0}
   onHeal:
     m_PersistentCalls:
@@ -15370,7 +15369,7 @@ MonoBehaviour:
   shipMeshe: {fileID: 4809680079708796643}
   camPositionDefault: {fileID: 6223855432257599762}
   camPositionAlternative: {fileID: 8183662167770596264}
-  positionSmoothTime: 9
+  positionSmoothTime: 20
   switchCam: 0
   cam: {fileID: 0}
 --- !u!114 &8167208518269845489

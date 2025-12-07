@@ -5,18 +5,19 @@ using UnityEngine.Pool;
 public class Bolet : MonoBehaviour
 {
     [SerializeField] private int damage = 20;
-    [SerializeField] private float speed = 20f;       
-    [SerializeField] private float lifeTime = 5f;     
+    [SerializeField] private float speed = 20f;
+    [SerializeField] private float lifeTime = 5f;
     [SerializeField] private GameObject hitEfx;
-
+    [SerializeField] private TrailRenderer trailRenderer;
+    [SerializeField] private TrailRenderer trailRenderer2;
     void Start()
     {
 
     }
-
+    
     void Update()
     {
-      
+
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
     }
 
@@ -50,8 +51,13 @@ public class Bolet : MonoBehaviour
 
         if (other.CompareTag("Enemy"))
         {
+            if (trailRenderer != null)
+            {
+                trailRenderer.Clear();
+                trailRenderer2.Clear();
+            }
             other.GetComponent<Meteor>()?.TakeDamage(damage);
-        pool.Release(gameObject);
+            pool.Release(gameObject);
         }
 
     }
@@ -67,5 +73,11 @@ public class Bolet : MonoBehaviour
     {
         yield return new WaitForSeconds(seconds);
         pool.Release(gameObject);
+             if (trailRenderer != null)
+            {
+                trailRenderer.Clear();
+                trailRenderer2.Clear();
+            }
+
     }
 }

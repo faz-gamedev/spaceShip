@@ -50,8 +50,9 @@ public class CheckpointManager : MonoBehaviour
     private SaveData data = new SaveData();
     private void Start()
     {
+       
 
-     
+
         player = GameObject.FindGameObjectWithTag("Player");
         data = SecureSaveManager.LoadGame();
         recorder = FindAnyObjectByType<TimeRecorder>();
@@ -171,7 +172,15 @@ public class CheckpointManager : MonoBehaviour
                     Debug.Log("level reched" + PlayerPrefs.GetInt(seasonlevelRiched) + "level Active ?" + PlayerPrefs.GetInt(levelToplay));
                 if (PlayerPrefs.GetInt(seasonlevelRiched) == PlayerPrefs.GetInt(levelToplay))
                 {
+                    if (PlayerPrefs.GetInt(seasonlevelRiched)!=14)
+                    {
+
                     PlayerPrefs.SetInt(seasonlevelRiched, PlayerPrefs.GetInt(seasonlevelRiched) + 1);
+                    }
+                    else
+                    {
+                        Debug.Log("season  Complate !!");
+                    }
 
                     PlayerPrefs.Save();
                     Debug.Log(PlayerPrefs.GetInt(seasonlevelRiched));
@@ -212,6 +221,7 @@ public class CheckpointManager : MonoBehaviour
 
     public void SaveStar(int starNum)
     {
+      data =  SecureSaveManager.LoadGame();
         switch (sesesnActive)
         {
             case 0:

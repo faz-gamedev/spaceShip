@@ -32,7 +32,7 @@ public class WeightedRandomSelector : MonoBehaviour
         for (int i = 0; i < totalSelections; i++)
         {
             int selected = GetWeightedRandom();
-            audioMangger.Play("klick");
+            audioMangger.Play("ui5");
             image[selected].sprite = green;
             Debug.Log("Selected Number: " + (selected + 1)); 
             yield return new WaitForSeconds(.1f);
@@ -44,7 +44,7 @@ public class WeightedRandomSelector : MonoBehaviour
             else
             {
                 yield return new WaitForSeconds(1f);
-                audioMangger.Play("ui1");
+                audioMangger.Play("ui4");
                 giftPanel[selected].SetActive(true);
                 starButton.interactable = true;
             }
@@ -91,7 +91,7 @@ public class WeightedRandomSelector : MonoBehaviour
 
     public void ShowAdds()
     {
-      //  AdManager.Instance.ShowGiftAd(0);
+        AdMager.Instance.ShowGiftAd(1);
     }
     public void GetRewardAdds()
     {

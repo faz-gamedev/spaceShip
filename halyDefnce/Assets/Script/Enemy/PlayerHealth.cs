@@ -107,7 +107,7 @@ public class PlayerHealth : MonoBehaviour
         }
         else if (other.CompareTag("killEnemy"))
         {
-            TakeDamage(20000);
+            TakeDamage(1200);
         }
         else if (other.CompareTag("Rocket"))
         {
@@ -120,7 +120,7 @@ public class PlayerHealth : MonoBehaviour
     {
         if (collision.collider.CompareTag("killEnemy"))
         {
-            TakeDamage(20000);
+            TakeDamage(1200);
         }
     }
 

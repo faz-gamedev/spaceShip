@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using RTLTMPro;
 using UnityEngine.UI;
 public class SelctAirShip : MonoBehaviour
@@ -19,6 +19,7 @@ public class SelctAirShip : MonoBehaviour
     [SerializeField] private GameObject unlockButton;
     [SerializeField] private GameObject selectButton;
     [SerializeField] private GameObject boyButton;
+    [SerializeField] private TypewriterEffect typewriterEffect;
 
     SaveData data = new SaveData
     {
@@ -105,6 +106,7 @@ public class SelctAirShip : MonoBehaviour
         else
         {
             Debug.Log("not enough mony!!!!!");
+            typewriterEffect.StartTypingNew("اعتبار کافی برای خرید ندارید!!!");
         }
         CoineManger.Instance.UpdateCoine();
     }

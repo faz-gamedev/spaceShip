@@ -39,7 +39,7 @@ public class WapenControl : MonoBehaviour
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private String sundWapen;
     [SerializeField] private Transform[] firePoint;
-    [SerializeField] private float bulletSpeed = 20f;
+   
     [SerializeField] private float fireRate = 0.5f;
 
     private float nextFireTime = 0f;     // زمان مجاز بعدی برای شلیک
@@ -65,15 +65,15 @@ public class WapenControl : MonoBehaviour
 
     private void Start()
     {
-
+       
         bulletPool = new ObjectPool<GameObject>(
         CreateBullet,
         OnGetBullet,
         OnReleaseBullet,
         OnDestroyBullet,
-        false,  // collectionCheck (برای دیباگ مفیده ولی در تولید بهتره false باشه)
-        minValuePool,     // تعداد اولیه
-        maxValuePool     // حداکثر تعداد
+        false, 
+        minValuePool,
+        maxValuePool     
     );
         ammoCunt.maxValue = maxAmmo;
         currentAmmo = maxAmmo;
@@ -103,11 +103,20 @@ public class WapenControl : MonoBehaviour
         Destroy(bullet);
     }
 
+    private void FixedUpdate()
+    {
+        Aime();
+       
+    }
     void Update()
     {
-       
 
 
+
+        if (joystick.Horizontal <= -0.2)
+        {
+            Fire();
+        }
 
         if (currentAmmo <= 0)
         {
@@ -131,7 +140,7 @@ public class WapenControl : MonoBehaviour
         UiAnimation();
         if (fireActive)
         {
-            Aime();
+         
            
 
             if (!isReloading && currentAmmo > 0)

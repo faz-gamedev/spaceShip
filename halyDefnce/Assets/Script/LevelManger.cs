@@ -44,7 +44,7 @@ public class LevelManger : MonoBehaviour
     public void Exsit()
     {
 
-        //AdManager.Instance.ShowInterstitialOrQuit();
+        AdMager.Instance.ShowInterstitialOrQuit();
 
 
     }

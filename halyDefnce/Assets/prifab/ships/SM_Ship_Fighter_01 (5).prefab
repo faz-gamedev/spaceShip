@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 173843833787903553}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.61, y: -1.06, z: 1.93}
+  m_LocalPosition: {x: -2.26, y: -1.28, z: 1.93}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4884,6 +4884,37 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!1 &1287383767461747724
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7339677685347907687}
+  m_Layer: 0
+  m_Name: f (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7339677685347907687
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1287383767461747724}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.968675, y: -1.01, z: 1.97}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6459654282383860368}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2648189514991183592
 GameObject:
   m_ObjectHideFlags: 0
@@ -14976,7 +15007,38 @@ Transform:
   m_GameObject: {fileID: 5389353545806973056}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.01, y: -1.01, z: 1.97}
+  m_LocalPosition: {x: 2.08, y: -1.4, z: 1.97}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6459654282383860368}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5584915420881053308
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 682552286058184248}
+  m_Layer: 0
+  m_Name: f (4)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &682552286058184248
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5584915420881053308}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.960843, y: -1.01, z: 1.97}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -24857,6 +24919,8 @@ Transform:
   - {fileID: 8173630793201672278}
   - {fileID: 2714653454111705888}
   - {fileID: 3759581202982432257}
+  - {fileID: 7339677685347907687}
+  - {fileID: 682552286058184248}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &8753151396420694327
@@ -24927,10 +24991,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c27076ee102ddf41ade7522fce2406e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  _thrustForce: 368
-  _pitchForce: 24
-  _rollForce: 32
-  _yawForce: 24
+  _thrustForce: 450
+  _pitchForce: 15
+  _rollForce: 15
+  _yawForce: 10
   _thrustAmount: 0
   _pitchAmount: 0
   _rollAmount: 0
@@ -24991,7 +25055,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb0503d2416d6e1488c4a0eb44dfd893, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WapenControl
-  minLocalPosition: {x: -400, y: -200}
+  minLocalPosition: {x: -400, y: -11}
   maxLocalPosition: {x: 400, y: 300}
   rayDistance: 1000
   rect: {fileID: 0}
@@ -25009,14 +25073,15 @@ MonoBehaviour:
   firePoint:
   - {fileID: 2714653454111705888}
   - {fileID: 3759581202982432257}
-  bulletSpeed: 191.3
-  fireRate: 0.5
+  - {fileID: 7339677685347907687}
+  - {fileID: 682552286058184248}
+  fireRate: 0.35
   fireActive: 0
-  maxAmmo: 168
+  maxAmmo: 40
   ammoCunt: {fileID: 0}
   cooldown: 5
   minValuePool: 20
-  maxValuePool: 100
+  maxValuePool: 200
 --- !u!65 &7599663025031748025
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -25081,7 +25146,7 @@ MonoBehaviour:
   shipMeshe: {fileID: 6044648709125048759}
   camPositionDefault: {fileID: 7490970699271511430}
   camPositionAlternative: {fileID: 409997006940711686}
-  positionSmoothTime: 9
+  positionSmoothTime: 20
   switchCam: 0
   cam: {fileID: 0}
 --- !u!114 &5341822225709201432
@@ -25563,10 +25628,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8975283876803406294}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.09923944, y: 0.019348085, z: -0.001954083, w: -0.9948736}
-  m_LocalPosition: {x: -0.01, y: 5.08, z: -14.64}
+  m_LocalRotation: {x: 0.09925893, y: 0, z: 0, w: 0.99506164}
+  m_LocalPosition: {x: 0, y: 5, z: -14}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6459654282383860368}
-  m_LocalEulerAnglesHint: {x: 11.393, y: -2.228, z: 0.003}
+  m_LocalEulerAnglesHint: {x: 11.393, y: 0, z: 0}
