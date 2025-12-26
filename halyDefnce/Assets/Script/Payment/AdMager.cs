@@ -1,4 +1,5 @@
-using AdiveryUnity;
+﻿using AdiveryUnity;
+using System;
 using UnityEngine;
 
 public class AdMager : MonoBehaviour
@@ -13,7 +14,9 @@ public class AdMager : MonoBehaviour
     [SerializeField] private string _InterstitialAdId = "04744de5-fbf6-4613-afe1-57e08fc3e7f6";
     private bool _interstitialLoaded = false;
     private bool _shouldQuitAfterAd = false;
-
+    [Header("Banner Ad")]
+    [SerializeField] private string _BannerAdId = "ffaf1794-3fc6-4dba-b7e6-98dd31be3498"; // شناسه بنر را اینجا بزنید
+    private BannerAd _bannerAd;
     [Header("Rewarded Gift Ad")]
     [SerializeField] private string _GiftAdId = "5f0c3ba3-f36c-4f73-8b46-60bd76a651e6";
     private bool _giftLoaded = false;
@@ -39,6 +42,10 @@ public class AdMager : MonoBehaviour
         InitializeAds();
     }
 
+    private void Start()
+    {
+        SetupBanner();
+    }
     private void InitializeAds()
     {
         Adivery.Configure(_AppId);
@@ -56,7 +63,38 @@ public class AdMager : MonoBehaviour
         Adivery.PrepareRewardedAd(_DoubleAdId);
         Adivery.PrepareInterstitialAd(_InterstitialAdId);
     }
+    // -------------------- BANNER LOGIC --------------------
 
+    private void SetupBanner()
+    {
+        // ایجاد شیء بنر (نوع بنر و موقعیت آن را اینجا مشخص کنید)
+        _bannerAd = new BannerAd(_BannerAdId, BannerAd.TYPE_BANNER, BannerAd.POSITION_TOP);
+
+        // اتصال به رویداد بارگذاری
+        _bannerAd.OnAdLoaded += OnBannerAdLoaded;
+
+        // شروع بارگذاری بنر
+        _bannerAd.LoadAd();
+    }
+
+    private void OnBannerAdLoaded(object sender, EventArgs e)
+    {
+        // وقتی بنر آماده شد، نمایش داده شود
+      //  _bannerAd.Show();
+        Debug.Log("Banner Loaded and Shown");
+    }
+
+    public void ShowBanner()
+    {
+        if (_bannerAd != null)
+            _bannerAd.Show();
+    }
+
+    public void HideBanner()
+    {
+        if (_bannerAd != null)
+            _bannerAd.Hide();
+    }
     // -------------------- LOADING --------------------
     private void OnInterstitialLoaded(object sender, string id)
     {

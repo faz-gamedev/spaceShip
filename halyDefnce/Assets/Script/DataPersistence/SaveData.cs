@@ -11,6 +11,7 @@ public class SaveData
 
     public int airshipActive=0;
     public bool seasonLock=false;
+    public bool disbalAdd=false;
 
     //airShip Unlock
 

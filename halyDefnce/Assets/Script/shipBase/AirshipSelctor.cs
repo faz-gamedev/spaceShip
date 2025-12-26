@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class AirshipSelctor : MonoBehaviour
@@ -9,6 +9,7 @@ public class AirshipSelctor : MonoBehaviour
     private List<GameObject> models;
     private void Awake()
     {
+      
         data = SecureSaveManager.LoadGame();
         models = new List<GameObject>();
         foreach (Transform t in transform)

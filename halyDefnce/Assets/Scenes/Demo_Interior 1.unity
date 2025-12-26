@@ -245518,6 +245518,7 @@ GameObject:
   - component: {fileID: 1489808194}
   - component: {fileID: 1489808195}
   - component: {fileID: 1489808196}
+  - component: {fileID: 1489808197}
   m_Layer: 0
   m_Name: ------GameManger-------
   m_TagString: Untagged
@@ -245612,6 +245613,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SetQualety
   qualityDropdown: {fileID: 3547289687698994863}
   qualityTxte: {fileID: 3089522569861518110}
+--- !u!114 &1489808197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1489808190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f77dfccdcb424243bd8d4efbe1d5a83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  showAdd: 0
+  ofAdd: 1
 --- !u!1001 &1491214927
 PrefabInstance:
   m_ObjectHideFlags: 0

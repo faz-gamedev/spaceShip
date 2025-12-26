@@ -5,7 +5,13 @@ public class LevelManger : MonoBehaviour
     public LodingScren loadingScreen; // ارجاع به اسکریپت LoadingScreen
     public SaveSystem saveSystem; // ارجاع به اسکریپت LoadingScreen
     [SerializeField] private GameObject[] gameMaster;
-
+    private bool shwAdd=false;
+    SaveData data = new SaveData { };
+    private void Start()
+    {
+        data = SecureSaveManager.LoadGame();
+        shwAdd = data.disbalAdd;
+    }
     public void StartLevel(int levelIndex)
     {
         if (gameMaster != null)
@@ -44,7 +50,15 @@ public class LevelManger : MonoBehaviour
     public void Exsit()
     {
 
+        if (shwAdd)
+        {
+            Application.Quit();
+        }
+        else
+        {
+
         AdMager.Instance.ShowInterstitialOrQuit();
+        }
 
 
     }

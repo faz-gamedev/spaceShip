@@ -1259,6 +1259,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   _AppId: 5d1fd393-d0eb-4382-858a-c4b05c023f2f
   _InterstitialAdId: d0867695-5ba5-4852-9bd6-11711d6a34fb
+  _BannerAdId: ffaf1794-3fc6-4dba-b7e6-98dd31be3498
   _GiftAdId: 737c0d67-f862-4bee-aed5-aedd2a8c4d5e
   _DoubleAdId: 737c0d67-f862-4bee-aed5-aedd2a8c4d5e
 --- !u!4 &434284050
@@ -1759,7 +1760,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -89.86163, y: 70.37845}
+  m_AnchoredPosition: {x: -89.86182, y: 70.37842}
   m_SizeDelta: {x: 179.7234, y: 140.7569}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &630968831
@@ -2502,7 +2503,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4282305057102428602, guid: 17ec6180e2fd06c448ecd75d6ebef9c9, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8763160522276385227, guid: 17ec6180e2fd06c448ecd75d6ebef9c9, type: 3}
       propertyPath: m_LocalScale.x
@@ -3119,6 +3120,7 @@ GameObject:
   - component: {fileID: 1028202394}
   - component: {fileID: 1028202395}
   - component: {fileID: 1028202396}
+  - component: {fileID: 1028202397}
   m_Layer: 0
   m_Name: manger
   m_TagString: Untagged
@@ -3148,7 +3150,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1028202392}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7dd603da10ad89146b2152976cc8c6bb, type: 3}
   m_Name: 
@@ -3190,6 +3192,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SetQualety
   qualityDropdown: {fileID: 2994885521798381566}
   qualityTxte: {fileID: 3626886189758356047}
+--- !u!114 &1028202397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1028202392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f77dfccdcb424243bd8d4efbe1d5a83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DisabelBanerr
+  showAdd: 0
 --- !u!1 &1063724319
 GameObject:
   m_ObjectHideFlags: 0
@@ -3740,7 +3755,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1346925744
 RectTransform:
   m_ObjectHideFlags: 0

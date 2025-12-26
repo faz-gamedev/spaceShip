@@ -73,7 +73,12 @@ public class PurchaseManager : MonoBehaviour
 
         return result;
     }
-
+    public async Task<Result<List<PurchaseInfo>>> GetPurchasedItems()
+    {
+        // این متد خریدهایی که انجام شده اما هنوز Consume نشده‌اند را لیست می‌کند
+        var result = await _payment.GetPurchases();
+        return result;
+    }
     private void OnApplicationQuit()
     {
         _payment.Disconnect();

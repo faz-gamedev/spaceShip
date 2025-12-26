@@ -45,10 +45,10 @@ public class PurchaseCafe : MonoBehaviour
             PurchaseButton.onClick.AddListener(OnPurchaseButtonClick);
         }
 
-
+       
 
     }
-
+    
 
 
     private async void OnPurchaseButtonClick()
@@ -82,6 +82,10 @@ public class PurchaseCafe : MonoBehaviour
                 break;
             case 3:
                 FindFirstObjectByType<ChekSeasonLock>().UnlockSeason();
+                data = SecureSaveManager.LoadGame();
+                data.disbalAdd = true;
+                SecureSaveManager.SaveGame(data);
+                FindFirstObjectByType<DisabelBanerr>().ChekAdd();
                 break;
         }
 
@@ -119,4 +123,7 @@ public class PurchaseCafe : MonoBehaviour
         Debug.Log("crense ====" + data.coin);
         CoineManger.Instance.UpdateCoine();
     }
+
+
+ 
 }
